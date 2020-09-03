@@ -10,7 +10,7 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    class GardenOrcOmelette
+    public class GardenOrcOmelette
     {
         private const double PRICE = 4.57;
         private const uint CALORIES = 404;

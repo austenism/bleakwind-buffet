@@ -7,7 +7,7 @@
 using System.Collections.Generic;
 namespace BleakwindBuffet.Data.Entrees
 {
-    class ThalmorTriple
+    public class ThalmorTriple
     {
         private const double PRICE = 8.32;
         private const uint CALORIES = 943;

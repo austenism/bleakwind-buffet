@@ -11,7 +11,7 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    class WarriorWater
+    public class WarriorWater
     {
         public Size size { get; set; } = Size.Small;
         public List<string> SpecialInstructions { get; } = new List<string>();

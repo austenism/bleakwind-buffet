@@ -11,7 +11,7 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    class SailorSoda
+    public class SailorSoda
     {
         public Size size { get; set; } = Size.Small;
         public SodaFlavor Flavor { get; set; } = SodaFlavor.Cherry;

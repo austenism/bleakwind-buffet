@@ -11,7 +11,7 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides
 {
-    class MadOtarGrits
+    public class MadOtarGrits
     {
         public Size size { get; set; } = Size.Small;
         public List<string> SpecialInstructions { get; } = new List<string>();
