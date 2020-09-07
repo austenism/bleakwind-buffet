@@ -1,11 +1,12 @@
 ﻿/*
  * Author: Zachery Brunner
+ * Edited By: Austen Clemons
  * Class: SmokehouseSkeletonTests.cs
  * Purpose: Test the SmokehouseSkeleton.cs class in the Data library
  */
 using Xunit;
 
-using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -14,51 +15,84 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldInlcudeSausageByDefault()
         {
+            SmokehouseSkeleton dish = new SmokehouseSkeleton();
+            Assert.True(dish.SausageLink);
         }
 
         [Fact]
         public void ShouldInlcudeEggByDefault()
         {
+            SmokehouseSkeleton dish = new SmokehouseSkeleton();
+            Assert.True(dish.Egg);
         }
 
         [Fact]
         public void ShouldInlcudeHashbrownsByDefault()
         {
+            SmokehouseSkeleton dish = new SmokehouseSkeleton();
+            Assert.True(dish.HashBrowns);
         }
 
         [Fact]
         public void ShouldInlcudePancakeByDefault()
         {
+            SmokehouseSkeleton dish = new SmokehouseSkeleton();
+            Assert.True(dish.Pancake);
         }
 
         [Fact]
         public void ShouldBeAbleToSetSausage()
         {
+            SmokehouseSkeleton dish = new SmokehouseSkeleton();
+            dish.SausageLink = false;
+            Assert.False(dish.SausageLink);
+            dish.SausageLink = true;
+            Assert.True(dish.SausageLink);
         }
 
         [Fact]
         public void ShouldBeAbleToSetEgg()
         {
+            SmokehouseSkeleton dish = new SmokehouseSkeleton();
+            dish.Egg = false;
+            Assert.False(dish.Egg);
+            dish.Egg = true;
+            Assert.True(dish.Egg);
         }
 
         [Fact]
         public void ShouldBeAbleToSetHashbrowns()
         {
+            SmokehouseSkeleton dish = new SmokehouseSkeleton();
+            dish.HashBrowns = false;
+            Assert.False(dish.HashBrowns);
+            dish.HashBrowns = true;
+            Assert.True(dish.HashBrowns);
         }
 
         [Fact]
         public void ShouldBeAbleToSetPancake()
         {
+            SmokehouseSkeleton dish = new SmokehouseSkeleton();
+            dish.Pancake = false;
+            Assert.False(dish.Pancake);
+            dish.Pancake = true;
+            Assert.True(dish.Pancake);
         }
 
         [Fact]
         public void ShouldReturnCorrectPrice()
         {
+            SmokehouseSkeleton dish = new SmokehouseSkeleton();
+            Assert.Equal(5.62, dish.Price);
         }
 
         [Fact]
         public void ShouldReturnCorrectCalories()
         {
+            SmokehouseSkeleton dish = new SmokehouseSkeleton();
+            bool result = dish.Calories.Equals(602);
+            Assert.True(result);
         }
 
         [Theory]
@@ -67,11 +101,35 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         public void ShouldReturnCorrectSpecialInstructions(bool includeSausage, bool includeEgg,
                                                             bool includeHashbrowns, bool includePancake)
         {
+            SmokehouseSkeleton dish = new SmokehouseSkeleton();
+            dish.SausageLink = includeSausage;
+            dish.Egg = includeEgg;
+            dish.HashBrowns = includeHashbrowns;
+            dish.Pancake = includePancake;
+
+            if (!includeSausage)
+            {
+                Assert.Contains("Hold sausage", dish.SpecialInstructions);
+            }
+            if (!includeEgg)
+            {
+                Assert.Contains("Hold eggs", dish.SpecialInstructions);
+            }
+            if (!includeHashbrowns)
+            {
+                Assert.Contains("Hold hash browns", dish.SpecialInstructions);
+            }
+            if (!includePancake)
+            {
+                Assert.Contains("Hold pancakes", dish.SpecialInstructions);
+            }
         }
 
         [Fact]
         public void ShouldReturnCorrectToString()
         {
+            SmokehouseSkeleton dish = new SmokehouseSkeleton();
+            Assert.Equal("Smokehouse Skeleton", dish.ToString());
         }
     }
 }

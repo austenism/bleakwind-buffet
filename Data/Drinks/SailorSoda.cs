@@ -23,7 +23,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{size} {Flavor}Sailor Soda";
+            return $"{size} {Flavor} Sailor Soda";
         }
         /// <summary>
         /// property that holds the price

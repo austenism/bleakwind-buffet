@@ -1,11 +1,12 @@
 ﻿/*
  * Author: Zachery Brunner
+ * Edited By: Austen Clemons
  * Class: PhillyPoacherTests.cs
  * Purpose: Test the PhillyPoacher.cs class in the Data library
  */
 using Xunit;
 
-using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -14,41 +15,68 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldInlcudeSirloinByDefault()
         {
+            PhillyPoacher dish = new PhillyPoacher();
+            Assert.True(dish.Sirloin);
         }
 
         [Fact]
         public void ShouldInlcudeOnionByDefault()
         {
+            PhillyPoacher dish = new PhillyPoacher();
+            Assert.True(dish.Onion);
         }
 
         [Fact]
         public void ShouldInlcudeRollByDefault()
         {
+            PhillyPoacher dish = new PhillyPoacher();
+            Assert.True(dish.Roll);
         }
 
         [Fact]
         public void ShouldBeAbleToSetSirloin()
         {
+            PhillyPoacher dish = new PhillyPoacher();
+            dish.Sirloin = false;
+            Assert.False(dish.Sirloin);
+            dish.Sirloin = true;
+            Assert.True(dish.Sirloin);
         }
 
         [Fact]
         public void ShouldBeAbleToSetOnions()
         {
+            PhillyPoacher dish = new PhillyPoacher();
+            dish.Onion = false;
+            Assert.False(dish.Onion);
+
+            dish.Onion = true;
+            Assert.True(dish.Onion);
         }
 
         [Fact]
         public void ShouldBeAbleToSetRoll()
         {
+            PhillyPoacher dish = new PhillyPoacher();
+            dish.Roll = false;
+            Assert.False(dish.Roll);
+            dish.Roll = true;
+            Assert.True(dish.Roll);
         }
 
         [Fact]
         public void ShouldReturnCorrectPrice()
         {
+            PhillyPoacher dish = new PhillyPoacher();
+            Assert.Equal(7.23, dish.Price);
         }
 
         [Fact]
         public void ShouldReturnCorrectCalories()
         {
+            PhillyPoacher dish = new PhillyPoacher();
+            bool result = dish.Calories.Equals(784);
+            Assert.True(result);
         }
 
         [Theory]
@@ -57,11 +85,30 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         public void ShouldReturnCorrectSpecialInstructions(bool includeSirloin, bool includeOnion,
                                                             bool includeRoll)
         {
+            PhillyPoacher dish = new PhillyPoacher();
+            dish.Sirloin = includeSirloin;
+            dish.Roll = includeRoll;
+            dish.Onion = includeOnion;
+
+            if (!includeSirloin)
+            {
+                Assert.Contains("Hold sirloin", dish.SpecialInstructions);
+            }
+            if (!includeRoll)
+            {
+                Assert.Contains("Hold roll", dish.SpecialInstructions);
+            }
+            if (!includeOnion)
+            {
+                Assert.Contains("Hold onions", dish.SpecialInstructions);
+            }
         }
 
         [Fact]
         public void ShouldReturnCorrectToString()
         {
+            PhillyPoacher dish = new PhillyPoacher();
+            Assert.Equal("Philly Poacher", dish.ToString());
         }
     }
 }

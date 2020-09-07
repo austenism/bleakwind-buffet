@@ -1,11 +1,12 @@
 ﻿/*
  * Author: Zachery Brunner
+ * Edited By: Austen Clemons
  * Class: CandlehearthCoffeeTests.cs
  * Purpose: Test the CandlehearthCoffee.cs class in the Data library
  */
 using Xunit;
 
-using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
@@ -15,41 +16,71 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [Fact]
         public void ShouldNotIncludeIceByDefault()
         {
+            CandlehearthCoffee drink = new CandlehearthCoffee();
+            Assert.False(drink.Ice);
         }
 
         [Fact]
         public void ShouldNotBeDecafByDefault()
         {
+            CandlehearthCoffee drink = new CandlehearthCoffee();
+            Assert.False(drink.Decaf);
         }
 
         [Fact]
         public void ShouldNotHaveRoomForCreamByDefault()
         {
+            CandlehearthCoffee drink = new CandlehearthCoffee();
+            Assert.False(drink.RoomForCream);
         }
 
         [Fact]
         public void ShouldBeSmallByDefault()
         {
+            CandlehearthCoffee drink = new CandlehearthCoffee();
+            Assert.Equal(Size.Small, drink.size);
         }
 
         [Fact]
         public void ShouldBeAbleToSetIce()
         {
+            CandlehearthCoffee drink = new CandlehearthCoffee();
+            drink.Ice = true;
+            Assert.True(drink.Ice);
+            drink.Ice = false;
+            Assert.False(drink.Ice);
         }
 
         [Fact]
         public void ShouldBeAbleToSetDecaf()
         {
+            CandlehearthCoffee drink = new CandlehearthCoffee();
+            drink.Decaf = true;
+            Assert.True(drink.Decaf);
+            drink.Decaf = false;
+            Assert.False(drink.Decaf);
         }
 
         [Fact]
         public void ShouldBeAbleToSetRoomForCream()
         {
+            CandlehearthCoffee drink = new CandlehearthCoffee();
+            drink.RoomForCream = true;
+            Assert.True(drink.RoomForCream);
+            drink.RoomForCream = false;
+            Assert.False(drink.RoomForCream);
         }
 
         [Fact]
         public void ShouldBeAbleToSetSize()
         {
+            CandlehearthCoffee drink = new CandlehearthCoffee();
+            drink.size = Size.Large;
+            Assert.Equal(Size.Large, drink.size);
+            drink.size = Size.Medium;
+            Assert.Equal(Size.Medium, drink.size);
+            drink.size = Size.Small;
+            Assert.Equal(Size.Small, drink.size);
         }
 
         [Theory]
@@ -58,6 +89,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Large, 1.75)]
         public void ShouldHaveCorrectPriceForSize(Size size, double price)
         {
+            CandlehearthCoffee drink = new CandlehearthCoffee();
+            drink.size = size;
+            Assert.Equal(price, drink.Price);
         }
 
         [Theory]
@@ -66,6 +100,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Large, 20)]
         public void ShouldHaveCorrectCaloriesForSize(Size size, uint cal)
         {
+            CandlehearthCoffee drink = new CandlehearthCoffee();
+            drink.size = size;
+            Assert.Equal(cal, drink.Calories);
         }
 
         [Theory]
@@ -75,6 +112,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(false, false)]
         public void ShouldHaveCorrectSpecialInstructions(bool includeIce, bool includeCream)
         {
+            CandlehearthCoffee drink = new CandlehearthCoffee();
+            drink.Ice = includeIce;
+            drink.RoomForCream = includeCream;
+
+            if (includeIce)
+            {
+                Assert.Contains("Add ice", drink.SpecialInstructions);
+            }
+            if (includeCream)
+            {
+                Assert.Contains("Add cream", drink.SpecialInstructions);
+            }
         }
 
         [Theory]
@@ -86,6 +135,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(false, Size.Large, "Large Candlehearth Coffee")]
         public void ShouldReturnCorrectToStringBasedOnSize(bool decaf, Size size, string name)
         {
+            CandlehearthCoffee drink = new CandlehearthCoffee();
+            drink.Decaf = decaf;
+            drink.size = size;
+            Assert.Equal(name, drink.ToString());
         }
     }
 }

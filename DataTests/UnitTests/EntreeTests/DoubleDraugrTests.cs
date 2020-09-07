@@ -1,11 +1,12 @@
 ﻿/*
  * Author: Zachery Brunner
+ * Edited By: Austen Clemons
  * Class: DoubleDraugrTests.cs
  * Purpose: Test the DoubleDraugr.cs class in the Data library
  */
 using Xunit;
 
-using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -14,91 +15,152 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldIncludeBunByDefault()
         {
+            DoubleDraugr dish = new DoubleDraugr();
+            Assert.True(dish.Bun);
         }
 
         [Fact]
         public void ShouldIncludeKetchupByDefault()
         {
+            DoubleDraugr dish = new DoubleDraugr();
+            Assert.True(dish.Ketchup);
         }
 
         [Fact]
         public void ShouldIncludeMustardByDefault()
         {
+            DoubleDraugr dish = new DoubleDraugr();
+            Assert.True(dish.Mustard);
         }
 
         [Fact]
         public void ShouldIncludePickleByDefault()
         {
+            DoubleDraugr dish = new DoubleDraugr();
+            Assert.True(dish.Pickle);
         }
 
         [Fact]
         public void ShouldIncludeCheeseByDefault()
         {
+            DoubleDraugr dish = new DoubleDraugr();
+            Assert.True(dish.Cheese);
         }
 
         [Fact]
         public void ShouldIncludeTomatoByDefault()
         {
+            DoubleDraugr dish = new DoubleDraugr();
+            Assert.True(dish.Tomato);
         }
 
         [Fact]
         public void ShouldIncludeLettuceByDefault()
         {
+            DoubleDraugr dish = new DoubleDraugr();
+            Assert.True(dish.Lettuce);
         }
 
         [Fact]
         public void ShouldIncludeMayoByDefault()
         {
+            DoubleDraugr dish = new DoubleDraugr();
+            Assert.True(dish.Mayo);
         }
 
         [Fact]
         public void ShouldBeAbleToSetBun()
         {
+            DoubleDraugr dish = new DoubleDraugr();
+            dish.Bun = false;
+            Assert.False(dish.Bun);
+            dish.Bun = true;
+            Assert.True(dish.Bun);
         }
 
         [Fact]
         public void ShouldBeAbleToSetKetchup()
         {
+            DoubleDraugr dish = new DoubleDraugr();
+            dish.Ketchup = false;
+            Assert.False(dish.Ketchup);
+            dish.Ketchup = true;
+            Assert.True(dish.Ketchup);
         }
 
         [Fact]
         public void ShouldBeAbleToSetMustard()
         {
+            DoubleDraugr dish = new DoubleDraugr();
+            dish.Mustard = false;
+            Assert.False(dish.Mustard);
+            dish.Mustard = true;
+            Assert.True(dish.Mustard);
         }
 
         [Fact]
         public void ShouldBeAbleToSetPickle()
         {
+            DoubleDraugr dish = new DoubleDraugr();
+            dish.Pickle = false;
+            Assert.False(dish.Pickle);
+            dish.Pickle = true;
+            Assert.True(dish.Pickle);
         }
 
         [Fact]
         public void ShouldBeAbleToSetCheese()
         {
+            DoubleDraugr dish = new DoubleDraugr();
+            dish.Cheese = false;
+            Assert.False(dish.Cheese);
+            dish.Cheese = true;
+            Assert.True(dish.Cheese);
         }
 
         [Fact]
         public void ShouldBeAbleToSetTomato()
         {
+            DoubleDraugr dish = new DoubleDraugr();
+            dish.Tomato = false;
+            Assert.False(dish.Tomato);
+            dish.Tomato = true;
+            Assert.True(dish.Tomato);
         }
 
         [Fact]
         public void ShouldBeAbleToSetLettuce()
         {
+            DoubleDraugr dish = new DoubleDraugr();
+            dish.Lettuce = false;
+            Assert.False(dish.Lettuce);
+            dish.Lettuce = true;
+            Assert.True(dish.Lettuce);
         }
 
         [Fact]
         public void ShouldBeAbleToSetMayo()
         {
+            DoubleDraugr dish = new DoubleDraugr();
+            dish.Mayo = false;
+            Assert.False(dish.Mayo);
+            dish.Mayo = true;
+            Assert.True(dish.Mayo);
         }
 
         [Fact]
         public void ShouldReturnCorrectPrice()
         {
+            DoubleDraugr dish = new DoubleDraugr();
+            Assert.Equal(7.32, dish.Price);
         }
 
         [Fact]
         public void ShouldReturnCorrectCalories()
         {
+            DoubleDraugr dish = new DoubleDraugr();
+            bool result = dish.Calories.Equals(843);
+            Assert.True(result);
         }
 
         [Theory]
@@ -108,11 +170,55 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
                                                                     bool includePickle, bool includeCheese, bool includeTomato,
                                                                     bool includeLettuce, bool includeMayo)
         {
+            DoubleDraugr dish = new DoubleDraugr();
+            dish.Bun = includeBun;
+            dish.Cheese = includeCheese;
+            dish.Ketchup = includeKetchup;
+            dish.Mustard = includeMustard;
+            dish.Pickle = includePickle;
+            dish.Lettuce = includeLettuce;
+            dish.Mayo = includeMayo;
+            dish.Tomato = includeTomato;
+
+            if (!includeBun)
+            {
+                Assert.Contains("Hold bun", dish.SpecialInstructions);
+            }
+            if (!includeCheese)
+            {
+                Assert.Contains("Hold cheese", dish.SpecialInstructions);
+            }
+            if (!includeKetchup)
+            {
+                Assert.Contains("Hold ketchup", dish.SpecialInstructions);
+            }
+            if (!includeMustard)
+            {
+                Assert.Contains("Hold mustard", dish.SpecialInstructions);
+            }
+            if (!includePickle)
+            {
+                Assert.Contains("Hold pickle", dish.SpecialInstructions);
+            }
+            if (!includeLettuce)
+            {
+                Assert.Contains("Hold lettuce", dish.SpecialInstructions);
+            }
+            if (!includeTomato)
+            {
+                Assert.Contains("Hold tomato", dish.SpecialInstructions);
+            }
+            if (!includeMayo)
+            {
+                Assert.Contains("Hold mayo", dish.SpecialInstructions);
+            }
         }
 
         [Fact]
         public void ShouldReturnCorrectToString()
         {
+            DoubleDraugr dish = new DoubleDraugr();
+            Assert.Equal("Double Draugr", dish.ToString());
         }
     }
 }
