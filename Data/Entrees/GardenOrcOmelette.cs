@@ -10,11 +10,11 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class GardenOrcOmelette
+    public class GardenOrcOmelette : Entree
     {
         private const double PRICE = 4.57;
         private const uint CALORIES = 404;
-        public List<string> SpecialInstructions { get; } = new List<string>();
+        public override List<string> SpecialInstructions { get; } = new List<string>();
 
         private bool broc = true;
         private bool mushrooms = true;
@@ -31,14 +31,14 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// property that holds the price
         /// </summary>
-        public double Price
+        public override double Price
         {
             get => PRICE;
         }
         /// <summary>
         /// represents the calorie count
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get => CALORIES;
         }
@@ -54,6 +54,13 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     SpecialInstructions.Add("Hold broccoli");
                 }
+                if (value == true)
+                {
+                    if (SpecialInstructions.Contains("Hold broccoli"))
+                    {
+                        SpecialInstructions.Remove("Hold broccoli");
+                    }
+                }
                 broc = value;
             }
         }
@@ -66,6 +73,13 @@ namespace BleakwindBuffet.Data.Entrees
                 if (value == false)
                 {
                     SpecialInstructions.Add("Hold mushrooms");
+                }
+                if (value == true)
+                {
+                    if (SpecialInstructions.Contains("Hold mushrooms"))
+                    {
+                        SpecialInstructions.Remove("Hold mushrooms");
+                    }
                 }
                 mushrooms = value;
             }
@@ -80,6 +94,13 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     SpecialInstructions.Add("Hold tomato");
                 }
+                if (value == true)
+                {
+                    if (SpecialInstructions.Contains("Hold tomato"))
+                    {
+                        SpecialInstructions.Remove("Hold tomato");
+                    }
+                }
                 tomato = value;
             }
         }
@@ -92,6 +113,13 @@ namespace BleakwindBuffet.Data.Entrees
                 if (value == false)
                 {
                     SpecialInstructions.Add("Hold cheddar");
+                }
+                if (value == true)
+                {
+                    if (SpecialInstructions.Contains("Hold cheddar"))
+                    {
+                        SpecialInstructions.Remove("Hold cheddar");
+                    }
                 }
                 cheddar = value;
             }

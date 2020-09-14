@@ -8,28 +8,41 @@ using Xunit;
 
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
     public class DragonbornWaffleFriesTests
     {
         [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            DragonbornWaffleFries side = new DragonbornWaffleFries();
+            Assert.IsAssignableFrom<IOrderItem>(side);
+        }
+        [Fact]
+        public void ShouldBeASide()
+        {
+            DragonbornWaffleFries side = new DragonbornWaffleFries();
+            Assert.IsAssignableFrom<Side>(side);
+        }
+        [Fact]
         public void ShouldBeSmallByDefault()
         {
             DragonbornWaffleFries side = new DragonbornWaffleFries();
-            Assert.Equal(Size.Small, side.size);
+            Assert.Equal(Size.Small, side.Size);
         }
 
         [Fact]
         public void ShouldBeAbleToSetSize()
         {
             DragonbornWaffleFries side = new DragonbornWaffleFries();
-            side.size = Size.Large;
-            Assert.Equal(Size.Large, side.size);
-            side.size = Size.Medium;
-            Assert.Equal(Size.Medium, side.size);
-            side.size = Size.Small;
-            Assert.Equal(Size.Small, side.size);
+            side.Size = Size.Large;
+            Assert.Equal(Size.Large, side.Size);
+            side.Size = Size.Medium;
+            Assert.Equal(Size.Medium, side.Size);
+            side.Size = Size.Small;
+            Assert.Equal(Size.Small, side.Size);
         }
 
         [Fact]
@@ -46,7 +59,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
         {
             DragonbornWaffleFries side = new DragonbornWaffleFries();
-            side.size = size;
+            side.Size = size;
             Assert.Equal(price, side.Price);
         }
 
@@ -57,7 +70,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectCaloriesBasedOnSize(Size size, uint calories)
         {
             DragonbornWaffleFries side = new DragonbornWaffleFries();
-            side.size = size;
+            side.Size = size;
             Assert.Equal(calories, side.Calories);
         }
 
@@ -68,7 +81,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
             DragonbornWaffleFries side = new DragonbornWaffleFries();
-            side.size = size;
+            side.Size = size;
             Assert.Equal(name, side.ToString());
         }
     }

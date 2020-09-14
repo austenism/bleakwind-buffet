@@ -7,11 +7,11 @@
 using System.Collections.Generic;
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class ThalmorTriple
+    public class ThalmorTriple : Entree
     {
         private const double PRICE = 8.32;
         private const uint CALORIES = 943;
-        public List<string> SpecialInstructions { get; } = new List<string>();
+        public override List<string> SpecialInstructions { get; } = new List<string>();
 
         private bool bun = true;
         private bool ketchup = true;
@@ -36,14 +36,14 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// property that holds the price
         /// </summary>
-        public double Price
+        public override double Price
         {
             get => PRICE;
         }
         /// <summary>
         /// represents the calorie count
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get => CALORIES;
         }
@@ -58,6 +58,13 @@ namespace BleakwindBuffet.Data.Entrees
                 if (value == false)
                 {
                     SpecialInstructions.Add("Hold bun");
+                }
+                if (value == true)
+                {
+                    if (SpecialInstructions.Contains("Hold bun"))
+                    {
+                        SpecialInstructions.Remove("Hold bun");
+                    }
                 }
                 bun = value;
             }
@@ -74,6 +81,13 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     SpecialInstructions.Add("Hold ketchup");
                 }
+                if (value == true)
+                {
+                    if (SpecialInstructions.Contains("Hold ketchup"))
+                    {
+                        SpecialInstructions.Remove("Hold ketchup");
+                    }
+                }
                 ketchup = value;
             }
         }
@@ -89,6 +103,13 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     SpecialInstructions.Add("Hold mustard");
                 }
+                if (value == true)
+                {
+                    if (SpecialInstructions.Contains("Hold mustard"))
+                    {
+                        SpecialInstructions.Remove("Hold mustard");
+                    }
+                }
                 mustard = value;
             }
         }
@@ -101,6 +122,13 @@ namespace BleakwindBuffet.Data.Entrees
                 if (value == false)
                 {
                     SpecialInstructions.Add("Hold pickle");
+                }
+                if (value == true)
+                {
+                    if (SpecialInstructions.Contains("Hold pickle"))
+                    {
+                        SpecialInstructions.Remove("Hold pickle");
+                    }
                 }
                 pickle = value;
             }
@@ -115,6 +143,13 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     SpecialInstructions.Add("Hold cheese");
                 }
+                if (value == true)
+                {
+                    if (SpecialInstructions.Contains("Hold cheese"))
+                    {
+                        SpecialInstructions.Remove("Hold cheese");
+                    }
+                }
                 cheese = value;
             }
         }
@@ -128,6 +163,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     SpecialInstructions.Add("Hold tomato");
                 }
+
                 tomato = value;
             }
         }
@@ -140,6 +176,13 @@ namespace BleakwindBuffet.Data.Entrees
                 if (value == false)
                 {
                     SpecialInstructions.Add("Hold lettuce");
+                }
+                if (value == true)
+                {
+                    if (SpecialInstructions.Contains("Hold lettuce"))
+                    {
+                        SpecialInstructions.Remove("Hold lettuce");
+                    }
                 }
                 lettuce = value;
             }
@@ -154,6 +197,13 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     SpecialInstructions.Add("Hold mayo");
                 }
+                if (value == true)
+                {
+                    if (SpecialInstructions.Contains("Hold mayo"))
+                    {
+                        SpecialInstructions.Remove("Hold mayo");
+                    }
+                }
                 mayo = value;
             }
         }
@@ -167,6 +217,13 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     SpecialInstructions.Add("Hold bacon");
                 }
+                if (value == true)
+                {
+                    if (SpecialInstructions.Contains("Hold bacon"))
+                    {
+                        SpecialInstructions.Remove("Hold bacon");
+                    }
+                }
                 bacon = value;
             }
         }
@@ -179,6 +236,13 @@ namespace BleakwindBuffet.Data.Entrees
                 if (value == false)
                 {
                     SpecialInstructions.Add("Hold egg");
+                }
+                if (value == true)
+                {
+                    if (SpecialInstructions.Contains("Hold egg"))
+                    {
+                        SpecialInstructions.Remove("Hold egg");
+                    }
                 }
                 egg = value;
             }

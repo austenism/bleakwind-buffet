@@ -11,10 +11,10 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class CandlehearthCoffee
+    public class CandlehearthCoffee : Drink
     {
-        public Size size { get; set; } = Size.Small;
-        public List<string> SpecialInstructions { get; } = new List<string>();
+        //public Size Size { get; set; } = Size.Small;
+        public override List<string> SpecialInstructions { get; } = new List<string>();
         private bool ice = false;
         private bool cream = false;
         public bool Decaf { get; set; } = false;
@@ -27,22 +27,22 @@ namespace BleakwindBuffet.Data.Drinks
         {
             if (!Decaf)
             {
-                return $"{size} Candlehearth Coffee";
+                return $"{Size} Candlehearth Coffee";
             }
             else
             {
-                return $"{size} Decaf Candlehearth Coffee";
+                return $"{Size} Decaf Candlehearth Coffee";
             }
         }
 
         /// <summary>
         /// property that holds the price
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
-                switch (size)
+                switch (Size)
                 {
                     case Size.Small:
                         return 0.75;
@@ -56,11 +56,11 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// property that holds the calorie count
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
-                switch (size)
+                switch (Size)
                 {
                     case Size.Small:
                         return 7;
@@ -81,6 +81,13 @@ namespace BleakwindBuffet.Data.Drinks
                 {
                     SpecialInstructions.Add("Add ice");
                 }
+                if (value == false)
+                {
+                    if (SpecialInstructions.Contains("Add ice"))
+                    {
+                        SpecialInstructions.Remove("Add ice");
+                    }
+                }
                 ice = value;
             }
 
@@ -93,6 +100,13 @@ namespace BleakwindBuffet.Data.Drinks
                 if (value == true)
                 {
                     SpecialInstructions.Add("Add cream");
+                }
+                if (value == false)
+                {
+                    if (SpecialInstructions.Contains("Add cream"))
+                    {
+                        SpecialInstructions.Remove("Add cream");
+                    }
                 }
                 cream = value;
             }

@@ -7,11 +7,24 @@
 using Xunit;
 
 using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class DoubleDraugrTests
-    {   
+    {
+        [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            DoubleDraugr dish = new DoubleDraugr();
+            Assert.IsAssignableFrom<IOrderItem>(dish);
+        }
+        [Fact]
+        public void ShouldBeAnEntree()
+        {
+            DoubleDraugr dish = new DoubleDraugr();
+            Assert.IsAssignableFrom<Entree>(dish);
+        }
         [Fact]
         public void ShouldIncludeBunByDefault()
         {

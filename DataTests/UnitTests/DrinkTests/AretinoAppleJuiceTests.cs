@@ -8,11 +8,24 @@ using Xunit;
 
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
-    public class AretinoAppleJuice
+    public class AretinoAppleJuiceTests
     {
+        [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            AretinoAppleJuice drink = new AretinoAppleJuice();
+            Assert.IsAssignableFrom<IOrderItem>(drink);
+        }
+        [Fact]
+        public void ShouldBeADrink()
+        {
+            AretinoAppleJuice drink = new AretinoAppleJuice();
+            Assert.IsAssignableFrom<Drink>(drink);
+        }
         [Fact]
         public void ShouldNotIncludeIceByDefault()
         {
@@ -24,7 +37,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldBeSmallByDefault()
         {
             Data.Drinks.AretinoAppleJuice drink = new Data.Drinks.AretinoAppleJuice();
-            Assert.Equal(Size.Small, drink.size);
+            Assert.Equal(Size.Small, drink.Size);
         }
 
         [Fact]
@@ -41,12 +54,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldBeAbleToSetSize()
         {
             Data.Drinks.AretinoAppleJuice drink = new Data.Drinks.AretinoAppleJuice();
-            drink.size = Size.Large;
-            Assert.Equal(Size.Large, drink.size);
-            drink.size = Size.Medium;
-            Assert.Equal(Size.Medium, drink.size);
-            drink.size = Size.Small;
-            Assert.Equal(Size.Small, drink.size);
+            drink.Size = Size.Large;
+            Assert.Equal(Size.Large, drink.Size);
+            drink.Size = Size.Medium;
+            Assert.Equal(Size.Medium, drink.Size);
+            drink.Size = Size.Small;
+            Assert.Equal(Size.Small, drink.Size);
         }
 
         [Theory]
@@ -56,7 +69,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldHaveCorrectPriceForSize(Size size, double price)
         {
             Data.Drinks.AretinoAppleJuice drink = new Data.Drinks.AretinoAppleJuice();
-            drink.size = size;
+            drink.Size = size;
             Assert.Equal(price, drink.Price);
         }
 
@@ -67,7 +80,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldHaveCorrectCaloriesForSize(Size size, uint cal)
         {
             Data.Drinks.AretinoAppleJuice drink = new Data.Drinks.AretinoAppleJuice();
-            drink.size = size;
+            drink.Size = size;
             Assert.Equal(cal, drink.Calories);
         }
 
@@ -91,7 +104,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
             Data.Drinks.AretinoAppleJuice drink = new Data.Drinks.AretinoAppleJuice();
-            drink.size = size;
+            drink.Size = size;
             Assert.Equal(name, drink.ToString());
         }
     }

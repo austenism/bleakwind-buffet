@@ -10,11 +10,11 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class ThugsTBone
+    public class ThugsTBone : Entree
     {
         private const double PRICE = 6.44;
         private const uint CALORIES = 982;
-        public List<string> SpecialInstructions { get; } = new List<string>();
+        public override List<string> SpecialInstructions { get; } = new List<string>();
 
         /// <summary>
         /// returns the name of the entree
@@ -27,14 +27,14 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// property that holds the price
         /// </summary>
-        public double Price
+        public override double Price
         {
             get => PRICE;
         }
         /// <summary>
         /// represents the calorie count
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get => CALORIES;
         }

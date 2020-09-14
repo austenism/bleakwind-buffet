@@ -11,11 +11,11 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class SailorSoda
+    public class SailorSoda : Drink
     {
-        public Size size { get; set; } = Size.Small;
+        //public Size Size { get; set; } = Size.Small;
         public SodaFlavor Flavor { get; set; } = SodaFlavor.Cherry;
-        public List<string> SpecialInstructions { get; } = new List<string>();
+        public override List<string> SpecialInstructions { get; } = new List<string>();
         private bool ice = true;
         /// <summary>
         /// returns the name of the drink
@@ -23,16 +23,16 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{size} {Flavor} Sailor Soda";
+            return $"{Size} {Flavor} Sailor Soda";
         }
         /// <summary>
         /// property that holds the price
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
-                switch (size)
+                switch (Size)
                 {
                     case Size.Small: 
                         return 1.42;
@@ -46,11 +46,11 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// property that holds the calorie count
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
-                switch (size)
+                switch (Size)
                 {
                     case Size.Small:
                         return 117;
@@ -70,6 +70,13 @@ namespace BleakwindBuffet.Data.Drinks
                 if (value == false)
                 {
                     SpecialInstructions.Add("Hold ice");
+                }
+                if (value == true)
+                {
+                    if (SpecialInstructions.Contains("Hold ice"))
+                    {
+                        SpecialInstructions.Remove("Hold ice");
+                    }
                 }
                 ice = value;
             }

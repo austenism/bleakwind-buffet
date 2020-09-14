@@ -8,28 +8,41 @@ using Xunit;
 
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
     public class VokunSaladTests
     {
         [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            VokunSalad side = new VokunSalad();
+            Assert.IsAssignableFrom<IOrderItem>(side);
+        }
+        [Fact]
+        public void ShouldBeASide()
+        {
+            VokunSalad side = new VokunSalad();
+            Assert.IsAssignableFrom<Side>(side);
+        }
+        [Fact]
         public void ShouldBeSmallByDefault()
         {
             VokunSalad side = new VokunSalad();
-            Assert.Equal(Size.Small, side.size);
+            Assert.Equal(Size.Small, side.Size);
         }
 
         [Fact]
         public void ShouldBeAbleToSetSize()
         {
             VokunSalad side = new VokunSalad();
-            side.size = Size.Large;
-            Assert.Equal(Size.Large, side.size);
-            side.size = Size.Medium;
-            Assert.Equal(Size.Medium, side.size);
-            side.size = Size.Small;
-            Assert.Equal(Size.Small, side.size);
+            side.Size = Size.Large;
+            Assert.Equal(Size.Large, side.Size);
+            side.Size = Size.Medium;
+            Assert.Equal(Size.Medium, side.Size);
+            side.Size = Size.Small;
+            Assert.Equal(Size.Small, side.Size);
         }
 
         [Fact]
@@ -46,7 +59,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
         {
             VokunSalad side = new VokunSalad();
-            side.size = size;
+            side.Size = size;
             Assert.Equal(price, side.Price);
         }
 
@@ -57,7 +70,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectCaloriesBasedOnSize(Size size, uint calories)
         {
             VokunSalad side = new VokunSalad();
-            side.size = size;
+            side.Size = size;
             Assert.Equal(calories, side.Calories);
         }
 
@@ -68,7 +81,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
             VokunSalad side = new VokunSalad();
-            side.size = size;
+            side.Size = size;
             Assert.Equal(name, side.ToString());
         }
     }

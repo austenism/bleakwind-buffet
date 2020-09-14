@@ -10,11 +10,11 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class PhillyPoacher
+    public class PhillyPoacher : Entree
     {
         private const double PRICE = 7.23;
         private const uint CALORIES = 784;
-        public List<string> SpecialInstructions { get; } = new List<string>();
+        public override List<string> SpecialInstructions { get; } = new List<string>();
 
         private bool sirloin = true; //all of the ingredients that be removed
         private bool onion = true;
@@ -30,14 +30,14 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// property that holds the price
         /// </summary>
-        public double Price
+        public override double Price
         {
             get => PRICE;
         }
         /// <summary>
         /// represents the calorie count
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get => CALORIES;
         }
@@ -53,6 +53,13 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     SpecialInstructions.Add("Hold sirloin");
                 }
+                if (value == true)
+                {
+                    if (SpecialInstructions.Contains("Hold sirloin"))
+                    {
+                        SpecialInstructions.Remove("Hold sirloin");
+                    }
+                }
                 sirloin = value;
             }
         }
@@ -66,6 +73,13 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     SpecialInstructions.Add("Hold onions");
                 }
+                if (value == true)
+                {
+                    if (SpecialInstructions.Contains("Hold onions"))
+                    {
+                        SpecialInstructions.Remove("Hold onions");
+                    }
+                }
                 onion = value;
             }
         }
@@ -78,6 +92,13 @@ namespace BleakwindBuffet.Data.Entrees
                 if (value == false)
                 {
                     SpecialInstructions.Add("Hold roll");
+                }
+                if (value == true)
+                {
+                    if (SpecialInstructions.Contains("Hold roll"))
+                    {
+                        SpecialInstructions.Remove("Hold roll");
+                    }
                 }
                 roll = value;
             }

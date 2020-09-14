@@ -11,10 +11,10 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class AretinoAppleJuice
+    public class AretinoAppleJuice : Drink
     {
-        public Size size { get; set; } = Size.Small;
-        public List<string> SpecialInstructions { get; } = new List<string>();
+        //public Size Size { get; set; } = Size.Small;
+        public override List<string> SpecialInstructions { get; } = new List<string>();
         private bool ice = false;
 
         /// <summary>
@@ -23,17 +23,17 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{size} Aretino Apple Juice";
+            return $"{Size} Aretino Apple Juice";
         }
 
         /// <summary>
         /// property that holds the price
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
-                switch (size)
+                switch (Size)
                 {
                     case Size.Small:
                         return 0.62;
@@ -47,11 +47,11 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// property that holds the calorie count
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
-                switch (size)
+                switch (Size)
                 {
                     case Size.Small:
                         return 44;
@@ -71,6 +71,13 @@ namespace BleakwindBuffet.Data.Drinks
                 if (value == true)
                 {
                     SpecialInstructions.Add("Add ice");
+                }
+                if (value == false)
+                {
+                    if (SpecialInstructions.Contains("Add ice"))
+                    {
+                        SpecialInstructions.Remove("Add ice");
+                    }
                 }
                 ice = value;
             }

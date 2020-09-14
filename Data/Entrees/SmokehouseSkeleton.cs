@@ -10,11 +10,11 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class SmokehouseSkeleton
+    public class SmokehouseSkeleton : Entree
     {
         private const double PRICE = 5.62;
         private const uint CALORIES = 602;
-        public List<string> SpecialInstructions { get; } = new List<string>();
+        public override List<string> SpecialInstructions { get; } = new List<string>();
 
         private bool sausage = true;
         private bool egg = true;
@@ -31,14 +31,14 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// property that holds the price
         /// </summary>
-        public double Price
+        public override double Price
         {
             get => PRICE;
         }
         /// <summary>
         /// represents the calorie count
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get => CALORIES;
         }
@@ -54,6 +54,13 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     SpecialInstructions.Add("Hold sausage");
                 }
+                if (value == true)
+                {
+                    if (SpecialInstructions.Contains("Hold sausage"))
+                    {
+                        SpecialInstructions.Remove("Hold sausage");
+                    }
+                }
                 sausage = value;
             }
         }
@@ -66,6 +73,13 @@ namespace BleakwindBuffet.Data.Entrees
                 if (value == false)
                 {
                     SpecialInstructions.Add("Hold eggs");
+                }
+                if (value == true)
+                {
+                    if (SpecialInstructions.Contains("Hold eggs"))
+                    {
+                        SpecialInstructions.Remove("Hold eggs");
+                    }
                 }
                 egg = value;
             }
@@ -80,6 +94,13 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     SpecialInstructions.Add("Hold hash browns");
                 }
+                if (value == true)
+                {
+                    if (SpecialInstructions.Contains("Hold hash browns"))
+                    {
+                        SpecialInstructions.Remove("Hold hash browns");
+                    }
+                }
                 hashbrowns = value;
             }
         }
@@ -92,6 +113,13 @@ namespace BleakwindBuffet.Data.Entrees
                 if (value == false)
                 {
                     SpecialInstructions.Add("Hold pancakes");
+                }
+                if (value == true)
+                {
+                    if (SpecialInstructions.Contains("Hold pancakes"))
+                    {
+                        SpecialInstructions.Remove("Hold pancakes");
+                    }
                 }
                 pancake = value;
             }
