@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Pictures\drink.png" />
+    <None Remove="Pictures\Entree.png" />
+    <None Remove="Pictures\Side.png" />
+    <None Remove="Pictures\skyrim-logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.UI.Xaml" Version="2.4.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="TypeMenus\Entrees - Copy.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>Entrees.xaml.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Pictures\drink.png" />
+    <Resource Include="Pictures\Entree.png" />
+    <Resource Include="Pictures\Side.png" />
+    <Resource Include="Pictures\skyrim-logo.png" />
+  </ItemGroup>
+
+</Project>

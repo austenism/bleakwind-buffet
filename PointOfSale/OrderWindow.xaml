@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="PointOfSale.OrderWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="20"/> <!--subtotal-->
+            <RowDefinition Height="20"/> <!--tax-->
+            <RowDefinition Height="20"/> <!--total-->
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" FontSize="20" Foreground="White">
+            ORDER INFO
+        </Label>
+        
+        <!--ADD TO THIS LIST-->
+        <Border Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="White">
+            <ListView Name="orderList" Background="Black">
+                
+            </ListView>
+        </Border>
+
+        <Label Grid.Column="1" Grid.Row="3" FontSize="9" HorizontalAlignment="Right" Foreground="White">
+            SUBTOTAL:
+        </Label>
+        <Label Grid.Column="1" Grid.Row="4" FontSize="9" HorizontalAlignment="Right" Foreground="White">
+            TAX:
+        </Label>
+        <Label Grid.Column="1" Grid.Row="5" FontSize="9" HorizontalAlignment="Right" Foreground="White">
+            TOTAL:
+        </Label>
+
+    </Grid>
+</UserControl>
