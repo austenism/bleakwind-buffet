@@ -5,14 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PointOfSale"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="700">
-    <Grid Background="Black">
+        Title="Order Item" Height="450" Width="700">
+    <Window.Resources>
+        <BitmapImage x:Key="skyrim" UriSource="Pictures/skyrim-logo.png"/>
+    </Window.Resources>
+
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        
-        
+
+        <Border Background="Black" Grid.Column="0"/>
+        <Rectangle Grid.Column="0" Grid.ColumnSpan="2">
+            <Rectangle.Fill><!--I know this is copyrighted but oh well-->
+                <ImageBrush Stretch="None" ImageSource="{StaticResource skyrim}"/>
+            </Rectangle.Fill>
+        </Rectangle>
         <Border Name="mainWindowBorder" Grid.Column="0" BorderThickness="1" BorderBrush="White"/>
         <Border Name="orderWindowBorder" Grid.Column="1" BorderThickness="1" BorderBrush="White" Background="Black"/>
     </Grid>

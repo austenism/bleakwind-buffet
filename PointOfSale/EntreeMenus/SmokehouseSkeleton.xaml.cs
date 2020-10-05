@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Austen Clemons
+* Class name: SmokehouseSkeleton.xaml.cs
+* Purpose: contains all c# code for the smokehouse skeleton
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +24,14 @@ namespace PointOfSale.EntreeMenus
     /// </summary>
     public partial class SmokehouseSkeleton : UserControl
     {
+        BleakwindBuffet.Data.Entrees.SmokehouseSkeleton notBurg = new BleakwindBuffet.Data.Entrees.SmokehouseSkeleton();
         public SmokehouseSkeleton()
         {
             InitializeComponent();
+            Sausage.DataContext = notBurg.SausageLink;
+            Egg.DataContext = notBurg.Egg;
+            Hashbrowns.DataContext = notBurg.HashBrowns;
+            Pancake.DataContext = notBurg.Pancake;
         }
         /// <summary>
         /// goes back to the prvious menu

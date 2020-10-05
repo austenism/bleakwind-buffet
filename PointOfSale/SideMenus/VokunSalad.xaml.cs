@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Austen Clemons
+* Class name: VokunSalad.xaml.cs
+* Purpose: contains all c# code for the Vokun salad
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +24,11 @@ namespace PointOfSale.SideMenus
     /// </summary>
     public partial class VokunSalad : UserControl
     {
+        BleakwindBuffet.Data.Sides.VokunSalad side = new BleakwindBuffet.Data.Sides.VokunSalad();
         public VokunSalad()
         {
             InitializeComponent();
+            Size.DataContext = side.Size;
         }
         /// <summary>
         /// goes back to the prvious menu

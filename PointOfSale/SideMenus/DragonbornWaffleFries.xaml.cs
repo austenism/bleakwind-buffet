@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Austen Clemons
+* Class name: DragonbornWaffleFries.xaml.cs
+* Purpose: contains all c# code for the Waffle fries
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +24,11 @@ namespace PointOfSale.SideMenus
     /// </summary>
     public partial class DragonbornWaffleFries : UserControl
     {
+        BleakwindBuffet.Data.Sides.DragonbornWaffleFries side = new BleakwindBuffet.Data.Sides.DragonbornWaffleFries();
         public DragonbornWaffleFries()
         {
             InitializeComponent();
+            Size.DataContext = side.Size;
         }
         /// <summary>
         /// goes back to the prvious menu

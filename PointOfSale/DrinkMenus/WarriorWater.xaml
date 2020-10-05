@@ -49,7 +49,7 @@
         <Label Grid.Column="1" Grid.Row="2" FontSize="10" Foreground="White">
             SIZE:
         </Label>
-        <ComboBox Grid.Column="1" Grid.Row="3">
+        <ComboBox Name="Size" Grid.Column="1" Grid.Row="3">
             <ComboBoxItem Content="SMALL"></ComboBoxItem>
             <ComboBoxItem Content="MEDIUM"></ComboBoxItem>
             <ComboBoxItem Content="LARGE"></ComboBoxItem>

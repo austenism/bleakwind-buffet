@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Austen Clemons
+* Class name: SailorSoda.xaml.cs
+* Purpose: contains all c# code for the sailor soda
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +24,13 @@ namespace PointOfSale.DrinkMenus
     /// </summary>
     public partial class SailorSoda : UserControl
     {
+        BleakwindBuffet.Data.Drinks.SailorSoda drink = new BleakwindBuffet.Data.Drinks.SailorSoda();
         public SailorSoda()
         {
             InitializeComponent();
+            Ice.DataContext = drink.Ice;
+            Flavor.DataContext = drink.Flavor;
+            Size.DataContext = drink.Size;
         }
         /// <summary>
         /// goes back to the prvious menu

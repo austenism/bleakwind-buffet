@@ -44,7 +44,7 @@
         <Label Grid.Column="1" Grid.ColumnSpan="3" FontSize="20" Foreground="White">
             BRIARHEART BURGER
         </Label>
-
+        
         <CheckBox Name="Bun" Grid.Column="1" Grid.Row="2" IsChecked="True" Foreground="White">
             BUN
         </CheckBox>

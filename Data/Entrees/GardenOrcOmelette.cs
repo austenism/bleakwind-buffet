@@ -7,10 +7,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class GardenOrcOmelette : Entree
+    public class GardenOrcOmelette : Entree, INotifyPropertyChanged
     {
         private const double PRICE = 4.57;
         private const uint CALORIES = 404;
@@ -20,6 +21,9 @@ namespace BleakwindBuffet.Data.Entrees
         private bool mushrooms = true;
         private bool tomato = true; //all of the ingredients that be removed
         private bool cheddar = true;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// returns the name of the entree
         /// </summary>
@@ -62,6 +66,7 @@ namespace BleakwindBuffet.Data.Entrees
                     }
                 }
                 broc = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Broccoli"));
             }
         }
         //whether or not eggs should be included
@@ -82,6 +87,7 @@ namespace BleakwindBuffet.Data.Entrees
                     }
                 }
                 mushrooms = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mushrooms"));
             }
         }
         //whether or not there should be hash browns
@@ -102,6 +108,7 @@ namespace BleakwindBuffet.Data.Entrees
                     }
                 }
                 tomato = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
             }
         }
         //whether or not there should be pancakes
@@ -122,6 +129,7 @@ namespace BleakwindBuffet.Data.Entrees
                     }
                 }
                 cheddar = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheddar"));
             }
         }
     }

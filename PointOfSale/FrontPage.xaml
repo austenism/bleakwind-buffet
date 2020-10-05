@@ -21,21 +21,33 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="40"/>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="250"/>
         </Grid.ColumnDefinitions>
 
         <Label Grid.Column="1" Grid.ColumnSpan="3" FontSize="20" Foreground="White">
             SELECT A TYPE:
         </Label>
-        
+
         <Button Click="Entrees_Click" Grid.Row="2" Grid.Column="1" FontSize="20" HorizontalContentAlignment="Left" >
-            ENTREES
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Left" Height="30">ENTREES</TextBlock>
+                <Rectangle Width="22"></Rectangle>
+                <Image DockPanel.Dock="Right" Source="Pictures/Entree.png" Stretch="Uniform"/>
+            </DockPanel>
         </Button>
         <Button Click="Sides_Click" Grid.Row="4" Grid.Column="1" FontSize="20" HorizontalContentAlignment="Left" >
-            SIDES
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Left" Height="30">SIDES</TextBlock>
+                <Rectangle Width="22"></Rectangle>
+                <Image DockPanel.Dock="Right" Source="Pictures/Side.png" Stretch="Fill"/>
+            </DockPanel>
         </Button>
         <Button Click="Drinks_Click" Grid.Row="6" Grid.Column="1" FontSize="20" HorizontalContentAlignment="Left" >
-            DRINKS
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Left" Height="30">DRINKS</TextBlock>
+                <Rectangle Width="22"></Rectangle>
+                <Image DockPanel.Dock="Right" Source="Pictures/drink.png" Stretch="Fill"/>
+            </DockPanel>
         </Button>
     </Grid>
 </UserControl>

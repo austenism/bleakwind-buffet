@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Austen Clemons
+* Class name: AretinoAppleJuice.xaml.cs
+* Purpose: contains all c# code for the aretino apple juice
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +24,12 @@ namespace PointOfSale.DrinkMenus
     /// </summary>
     public partial class AretinoAppleJuice : UserControl
     {
+        BleakwindBuffet.Data.Drinks.AretinoAppleJuice drink = new BleakwindBuffet.Data.Drinks.AretinoAppleJuice();
         public AretinoAppleJuice()
         {
             InitializeComponent();
+            Size.DataContext = drink.Size;
+            Ice.DataContext = drink.Ice;
         }
         /// <summary>
         /// goes back to the prvious menu

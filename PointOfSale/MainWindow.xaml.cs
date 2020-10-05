@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Austen Clemons
+* Class name: MainWindow.xaml.cs
+* Purpose: contains all c# code for the main window
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

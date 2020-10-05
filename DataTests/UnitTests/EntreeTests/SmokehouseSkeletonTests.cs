@@ -8,11 +8,78 @@ using Xunit;
 
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class SmokehouseSkeletonTests
     {
+        [Fact]
+        public void ChangingSausageNotifiesSausageProperty()
+        {
+            var dish = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(dish, "Sausage", () =>
+            {
+                dish.SausageLink = true;
+            });
+
+            Assert.PropertyChanged(dish, "Sausage", () =>
+            {
+                dish.SausageLink = false;
+            });
+        }
+        [Fact]
+        public void ChangingEggNotifiesEggProperty()
+        {
+            var dish = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(dish, "Egg", () =>
+            {
+                dish.Egg = true;
+            });
+
+            Assert.PropertyChanged(dish, "Egg", () =>
+            {
+                dish.Egg = false;
+            });
+        }
+        [Fact]
+        public void ChangingHashbrownsNotifiesHashbrownsProperty()
+        {
+            var dish = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(dish, "Hashbrowns", () =>
+            {
+                dish.HashBrowns = true;
+            });
+
+            Assert.PropertyChanged(dish, "Hashbrowns", () =>
+            {
+                dish.HashBrowns = false;
+            });
+        }
+        [Fact]
+        public void ChangingPancakeNotifiesPancakeProperty()
+        {
+            var dish = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(dish, "Pancake", () =>
+            {
+                dish.Pancake = true;
+            });
+
+            Assert.PropertyChanged(dish, "Pancake", () =>
+            {
+                dish.Pancake = false;
+            });
+        }
+        [Fact]
+        public void ShouldImplementINotifyPropertyChanged()
+        {
+            SmokehouseSkeleton dish = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(dish);
+        }
         [Fact]
         public void ShouldBeAnIOrderItem()
         {
@@ -130,11 +197,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             }
             if (!includeHashbrowns)
             {
-                Assert.Contains("Hold hash browns", dish.SpecialInstructions);
+                Assert.Contains("Hold hashbrowns", dish.SpecialInstructions);
             }
             if (!includePancake)
             {
-                Assert.Contains("Hold pancakes", dish.SpecialInstructions);
+                Assert.Contains("Hold pancake", dish.SpecialInstructions);
             }
         }
 

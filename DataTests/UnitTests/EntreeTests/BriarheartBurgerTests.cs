@@ -8,11 +8,93 @@ using Xunit;
 
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class BriarheartBurgerTests
     {
+        [Fact]
+        public void ChangingBunNotifiesBunProperty()
+        {
+            var dish = new BriarheartBurger();
+
+            Assert.PropertyChanged(dish, "Bun", () =>
+            {
+                dish.Bun = true;
+            });
+
+            Assert.PropertyChanged(dish, "Bun", () =>
+            {
+                dish.Bun = false;
+            });
+        }
+        [Fact]
+        public void ChangingKetchupNotifiesKetchupProperty()
+        {
+            var dish = new BriarheartBurger();
+
+            Assert.PropertyChanged(dish, "Ketchup", () =>
+            {
+                dish.Ketchup = true;
+            });
+
+            Assert.PropertyChanged(dish, "Ketchup", () =>
+            {
+                dish.Ketchup = false;
+            });
+        }
+        [Fact]
+        public void ChangingMustardNotifiesMustardProperty()
+        {
+            var dish = new BriarheartBurger();
+
+            Assert.PropertyChanged(dish, "Mustard", () =>
+            {
+                dish.Mustard = true;
+            });
+
+            Assert.PropertyChanged(dish, "Mustard", () =>
+            {
+                dish.Mustard = false;
+            });
+        }
+        [Fact]
+        public void ChangingPickleNotifiesPickleProperty()
+        {
+            var dish = new BriarheartBurger();
+
+            Assert.PropertyChanged(dish, "Pickle", () =>
+            {
+                dish.Pickle = true;
+            });
+
+            Assert.PropertyChanged(dish, "Pickle", () =>
+            {
+                dish.Pickle = false;
+            });
+        }
+        [Fact]
+        public void ChangingCheeseNotifiesCheeseProperty()
+        {
+            var dish = new BriarheartBurger();
+
+            Assert.PropertyChanged(dish, "Cheese", () =>
+            {
+                dish.Cheese = true;
+            });
+
+            Assert.PropertyChanged(dish, "Cheese", () =>
+            {
+                dish.Cheese = false;
+            });
+        }
+        [Fact]
+        public void ShouldImplementINotifyPropertyChanged()
+        {
+            BriarheartBurger dish = new BriarheartBurger();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(dish);
+        }
         [Fact]
         public void ShouldBeAnIOrderItem()
         {

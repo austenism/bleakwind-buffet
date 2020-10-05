@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Austen Clemons
+* Class name: FriedMiraak.xaml.cs
+* Purpose: contains all c# code for the fried miraak
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +24,11 @@ namespace PointOfSale.SideMenus
     /// </summary>
     public partial class FriedMiraak : UserControl
     {
+        BleakwindBuffet.Data.Sides.FriedMiraak side = new BleakwindBuffet.Data.Sides.FriedMiraak();
         public FriedMiraak()
         {
             InitializeComponent();
+            Size.DataContext = side.Size;
         }
         /// <summary>
         /// goes back to the prvious menu

@@ -7,10 +7,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class PhillyPoacher : Entree
+    public class PhillyPoacher : Entree, INotifyPropertyChanged
     {
         private const double PRICE = 7.23;
         private const uint CALORIES = 784;
@@ -19,6 +20,9 @@ namespace BleakwindBuffet.Data.Entrees
         private bool sirloin = true; //all of the ingredients that be removed
         private bool onion = true;
         private bool roll = true;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// returns the name of the entree
         /// </summary>
@@ -61,6 +65,7 @@ namespace BleakwindBuffet.Data.Entrees
                     }
                 }
                 sirloin = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
             }
         }
         //whether or not onions should be included
@@ -81,6 +86,7 @@ namespace BleakwindBuffet.Data.Entrees
                     }
                 }
                 onion = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
             }
         }
         //whether or not the roll should be included
@@ -101,6 +107,7 @@ namespace BleakwindBuffet.Data.Entrees
                     }
                 }
                 roll = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
             }
         }
     }

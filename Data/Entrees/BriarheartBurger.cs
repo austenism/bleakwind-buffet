@@ -5,9 +5,10 @@
 */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class BriarheartBurger : Entree
+    public class BriarheartBurger : Entree, INotifyPropertyChanged
     {
         private const double PRICE    = 6.32;
         private const uint   CALORIES = 743;
@@ -17,6 +18,9 @@ namespace BleakwindBuffet.Data.Entrees
         private bool mustard = true;
         private bool pickle = true;
         private bool cheese = true;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// returns the name of the entree
         /// </summary>
@@ -61,6 +65,7 @@ namespace BleakwindBuffet.Data.Entrees
                     }
                 }
                 bun = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
             }
         }
         /// <summary>
@@ -83,6 +88,7 @@ namespace BleakwindBuffet.Data.Entrees
                     }
                 }
                 ketchup = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
             }
         }
         /// <summary>
@@ -105,6 +111,7 @@ namespace BleakwindBuffet.Data.Entrees
                     }
                 }
                 mustard = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
             }
         }
         //whether or not pickles should be on the burger
@@ -125,6 +132,7 @@ namespace BleakwindBuffet.Data.Entrees
                     }
                 }
                 pickle = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
             }
         }
         //whether or not cheese should be on the burger
@@ -145,6 +153,7 @@ namespace BleakwindBuffet.Data.Entrees
                     }
                 }
                 cheese = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
             }
         }
 

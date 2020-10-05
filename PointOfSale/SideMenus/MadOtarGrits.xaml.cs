@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Austen Clemons
+* Class name: MadOtarGrits.xaml.cs
+* Purpose: contains all c# code for the grits
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +24,11 @@ namespace PointOfSale.SideMenus
     /// </summary>
     public partial class MadOtarGrits : UserControl
     {
+        BleakwindBuffet.Data.Sides.MadOtarGrits side = new BleakwindBuffet.Data.Sides.MadOtarGrits();
         public MadOtarGrits()
         {
             InitializeComponent();
+            Size.DataContext = side.Size;
         }
         /// <summary>
         /// goes back to the prvious menu

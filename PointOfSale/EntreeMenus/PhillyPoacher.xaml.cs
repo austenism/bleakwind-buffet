@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Austen Clemons
+* Class name: PhillyPoacher.xaml.cs
+* Purpose: contains all c# code for the philly poacher
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +24,13 @@ namespace PointOfSale.EntreeMenus
     /// </summary>
     public partial class PhillyPoacher : UserControl
     {
+        BleakwindBuffet.Data.Entrees.PhillyPoacher notBurg = new BleakwindBuffet.Data.Entrees.PhillyPoacher();
         public PhillyPoacher()
         {
             InitializeComponent();
+            Sirloin.DataContext = notBurg.Sirloin;
+            Onion.DataContext = notBurg.Onion;
+            Roll.DataContext = notBurg.Roll;
         }
         /// <summary>
         /// goes back to the prvious menu

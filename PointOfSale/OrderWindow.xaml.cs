@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Austen Clemons
+* Class name: OrderWindow.xaml.cs
+* Purpose: contains all c# code for the order window
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

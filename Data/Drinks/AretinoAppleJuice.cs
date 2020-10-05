@@ -8,14 +8,22 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class AretinoAppleJuice : Drink
+    public class AretinoAppleJuice : Drink, INotifyPropertyChanged
     {
+        /// <summary>
+        /// event handler for when a property is changed
+        /// </summary>
+        //public event PropertyChangedEventHandler PropertyChanged;
         //public Size Size { get; set; } = Size.Small;
         public override List<string> SpecialInstructions { get; } = new List<string>();
         private bool ice = false;
+        private Size size;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// returns the name of the drink
@@ -24,6 +32,18 @@ namespace BleakwindBuffet.Data.Drinks
         public override string ToString()
         {
             return $"{Size} Aretino Apple Juice";
+        }
+
+        public override Size Size
+        {
+            get => size;
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
         }
 
         /// <summary>
@@ -80,6 +100,8 @@ namespace BleakwindBuffet.Data.Drinks
                     }
                 }
                 ice = value;
+
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
             }
 
         }

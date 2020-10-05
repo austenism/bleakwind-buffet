@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Austen Clemons
+* Class name: CandlehearthCoffee.xaml.cs
+* Purpose: contains all c# code for the candlehearth coffee
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +24,14 @@ namespace PointOfSale.DrinkMenus
     /// </summary>
     public partial class CandlehearthCoffee : UserControl
     {
+        BleakwindBuffet.Data.Drinks.CandlehearthCoffee drink = new BleakwindBuffet.Data.Drinks.CandlehearthCoffee();
         public CandlehearthCoffee()
         {
             InitializeComponent();
+            Size.DataContext = drink.Size;
+            Ice.DataContext = drink.Ice;
+            Cream.DataContext = drink.RoomForCream;
+            Decaf.DataContext = drink.Decaf;
         }
         /// <summary>
         /// goes back to the prvious menu

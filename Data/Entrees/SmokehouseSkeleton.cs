@@ -7,10 +7,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class SmokehouseSkeleton : Entree
+    public class SmokehouseSkeleton : Entree, INotifyPropertyChanged
     {
         private const double PRICE = 5.62;
         private const uint CALORIES = 602;
@@ -20,6 +21,9 @@ namespace BleakwindBuffet.Data.Entrees
         private bool egg = true;
         private bool hashbrowns = true; //all of the ingredients that be removed
         private bool pancake = true;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// returns the name of the entree
         /// </summary>
@@ -62,6 +66,7 @@ namespace BleakwindBuffet.Data.Entrees
                     }
                 }
                 sausage = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sausage"));
             }
         }
         //whether or not eggs should be included
@@ -82,6 +87,7 @@ namespace BleakwindBuffet.Data.Entrees
                     }
                 }
                 egg = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
             }
         }
         //whether or not there should be hash browns
@@ -92,16 +98,17 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 if (value == false)
                 {
-                    SpecialInstructions.Add("Hold hash browns");
+                    SpecialInstructions.Add("Hold hashbrowns");
                 }
                 if (value == true)
                 {
-                    if (SpecialInstructions.Contains("Hold hash browns"))
+                    if (SpecialInstructions.Contains("Hold hashbrowns"))
                     {
-                        SpecialInstructions.Remove("Hold hash browns");
+                        SpecialInstructions.Remove("Hold hashbrowns");
                     }
                 }
                 hashbrowns = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Hashbrowns"));
             }
         }
         //whether or not there should be pancakes
@@ -112,16 +119,17 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 if (value == false)
                 {
-                    SpecialInstructions.Add("Hold pancakes");
+                    SpecialInstructions.Add("Hold pancake");
                 }
                 if (value == true)
                 {
-                    if (SpecialInstructions.Contains("Hold pancakes"))
+                    if (SpecialInstructions.Contains("Hold pancake"))
                     {
-                        SpecialInstructions.Remove("Hold pancakes");
+                        SpecialInstructions.Remove("Hold pancake");
                     }
                 }
                 pancake = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pancake"));
             }
         }
     }

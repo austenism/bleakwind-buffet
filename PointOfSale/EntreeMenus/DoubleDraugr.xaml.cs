@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Austen Clemons
+* Class name: DoubleDraugr.xaml.cs
+* Purpose: contains all c# code for the double draugr
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +24,18 @@ namespace PointOfSale.EntreeMenus
     /// </summary>
     public partial class DoubleDraugr : UserControl
     {
+        BleakwindBuffet.Data.Entrees.DoubleDraugr burg = new BleakwindBuffet.Data.Entrees.DoubleDraugr();
         public DoubleDraugr()
         {
             InitializeComponent();
+            Bun.DataContext = burg.Bun;
+            Ketchup.DataContext = burg.Ketchup;
+            Mustard.DataContext = burg.Mustard;
+            Pickle.DataContext = burg.Pickle;
+            Cheese.DataContext = burg.Cheese;
+            Tomato.DataContext = burg.Tomato;
+            Lettuce.DataContext = burg.Lettuce;
+            Mayo.DataContext = burg.Mayo;
         }
         /// <summary>
         /// goes back to the prvious menu
@@ -34,8 +49,15 @@ namespace PointOfSale.EntreeMenus
         }
 
         private void AddItem_Click(object sender, RoutedEventArgs e)
-        {
+        { //EXAMPLE FOR LATER FIX THIS TO WORK
+            Border mainWindowBorder = (Border)this.Parent;
+            Grid mainWindowGrid = (Grid)mainWindowBorder.Parent;
+            MainWindow mainWindow = (MainWindow)mainWindowGrid.Parent;
+            OrderWindow orderWindow = (OrderWindow)mainWindow.orderWindowBorder.Child;
 
+
+            BleakwindBuffet.Data.Entrees.DoubleDraugr doubleDraugr = new BleakwindBuffet.Data.Entrees.DoubleDraugr();
+            orderWindow.orderList.Items.Add(doubleDraugr.ToString());
         }
     }
 }

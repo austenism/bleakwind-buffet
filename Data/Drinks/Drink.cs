@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks
 {
@@ -10,10 +11,11 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public abstract class Drink : IOrderItem
     {
+        
         /// <summary>
         /// the size of the drink
         /// </summary>
-        public virtual Size Size { get; set; }
+        public abstract Size Size { get; set; }
         /// <summary>
         /// the price of the drink
         /// </summary>
@@ -29,5 +31,8 @@ namespace BleakwindBuffet.Data.Drinks
         /// special instructions to prepare the drink
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
+
+
+        
     }
 }

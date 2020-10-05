@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Austen Clemons
+* Class name: WarriorWater.xaml.cs
+* Purpose: contains all c# code for the warrior water
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +24,13 @@ namespace PointOfSale.DrinkMenus
     /// </summary>
     public partial class WarriorWater : UserControl
     {
+        BleakwindBuffet.Data.Drinks.WarriorWater drink = new BleakwindBuffet.Data.Drinks.WarriorWater();
         public WarriorWater()
         {
             InitializeComponent();
+            Ice.DataContext = drink.Ice;
+            Lemon.DataContext = drink.Lemon;
+            Size.DataContext = drink.Size;
         }
         /// <summary>
         /// goes back to the prvious menu

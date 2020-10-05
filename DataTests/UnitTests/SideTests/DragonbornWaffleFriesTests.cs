@@ -9,11 +9,79 @@ using Xunit;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
     public class DragonbornWaffleFriesTests
     {
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            var side = new DragonbornWaffleFries();
+
+            Assert.PropertyChanged(side, "Size", () =>
+            {
+                side.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(side, "Size", () =>
+            {
+                side.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(side, "Size", () =>
+            {
+                side.Size = Size.Large;
+            });
+        }
+        [Fact]
+        public void ChangingSizeNotifiesPriceProperty()
+        {
+            var side = new DragonbornWaffleFries();
+
+            Assert.PropertyChanged(side, "Price", () =>
+            {
+                side.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(side, "Price", () =>
+            {
+                side.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(side, "Price", () =>
+            {
+                side.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesCaloriesProperty()
+        {
+            var side = new DragonbornWaffleFries();
+
+            Assert.PropertyChanged(side, "Calories", () =>
+            {
+                side.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(side, "Calories", () =>
+            {
+                side.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(side, "Calories", () =>
+            {
+                side.Size = Size.Large;
+            });
+        }
+        [Fact]
+        public void ShouldImplementINotifyPropertyChanged()
+        {
+            DragonbornWaffleFries side = new DragonbornWaffleFries();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(side);
+        }
         [Fact]
         public void ShouldBeAnIOrderItem()
         {

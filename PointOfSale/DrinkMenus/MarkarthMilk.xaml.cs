@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Austen Clemons
+* Class name: MarkarthMilk.xaml.cs
+* Purpose: contains all c# code for the Markarth milk
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +24,12 @@ namespace PointOfSale.DrinkMenus
     /// </summary>
     public partial class MarkarthMilk : UserControl
     {
+        BleakwindBuffet.Data.Drinks.MarkarthMilk drink = new BleakwindBuffet.Data.Drinks.MarkarthMilk();
         public MarkarthMilk()
         {
             InitializeComponent();
+            Size.DataContext = drink.Size;
+            Ice.DataContext = drink.Ice;
         }
         /// <summary>
         /// goes back to the prvious menu

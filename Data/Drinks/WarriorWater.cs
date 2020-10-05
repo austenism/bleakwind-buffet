@@ -8,15 +8,31 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class WarriorWater : Drink
+    public class WarriorWater : Drink, INotifyPropertyChanged
     {
         //public Size Size { get; set; } = Size.Small;
         public override List<string> SpecialInstructions { get; } = new List<string>();
         private bool ice = true;
         private bool lemon = false;
+        private Size size;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public override Size Size
+        {
+            get => size;
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
+        }
 
         /// <summary>
         /// returns the name of the drink
@@ -81,6 +97,7 @@ namespace BleakwindBuffet.Data.Drinks
                     }
                 }
                 ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
             }
 
         }
@@ -94,6 +111,7 @@ namespace BleakwindBuffet.Data.Drinks
                     SpecialInstructions.Add("Add lemon");
                 }
                 lemon = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
             }
 
         }

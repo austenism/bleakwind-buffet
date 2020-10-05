@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Austen Clemons
+* Class name: FrontPage.xaml.cs
+* Purpose: contains all c# code for the FrontPage
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

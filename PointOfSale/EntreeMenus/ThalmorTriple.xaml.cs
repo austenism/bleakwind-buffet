@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Austen Clemons
+* Class name: ThalmorTriple.xaml.cs
+* Purpose: contains all c# code for the ThalmorTriple
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +24,20 @@ namespace PointOfSale.EntreeMenus
     /// </summary>
     public partial class ThalmorTriple : UserControl
     {
+        BleakwindBuffet.Data.Entrees.ThalmorTriple burg = new BleakwindBuffet.Data.Entrees.ThalmorTriple();
         public ThalmorTriple()
         {
             InitializeComponent();
+            Bun.DataContext = burg.Bun;
+            Ketchup.DataContext = burg.Ketchup;
+            Mustard.DataContext = burg.Mustard;
+            Pickle.DataContext = burg.Pickle;
+            Cheese.DataContext = burg.Cheese;
+            Tomato.DataContext = burg.Tomato;
+            Lettuce.DataContext = burg.Lettuce;
+            Mayo.DataContext = burg.Mayo;
+            Bacon.DataContext = burg.Bacon;
+            Egg.DataContext = burg.Egg;
         }
         /// <summary>
         /// goes back to the prvious menu

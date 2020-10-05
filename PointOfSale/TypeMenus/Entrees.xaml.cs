@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Austen Clemons
+* Class name: Entrees.xaml.cs
+* Purpose: contains all c# code for the entrees
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
