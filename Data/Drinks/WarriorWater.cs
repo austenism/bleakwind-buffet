@@ -20,7 +20,7 @@ namespace BleakwindBuffet.Data.Drinks
         private bool lemon = false;
         private Size size;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
 
         public override Size Size
         {

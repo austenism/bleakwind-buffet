@@ -45,20 +45,20 @@
             BRIARHEART BURGER
         </Label>
         
-        <CheckBox Name="Bun" Grid.Column="1" Grid.Row="2" IsChecked="True" Foreground="White">
-            BUN
+        <CheckBox Name="Bun" Grid.Column="1" Grid.Row="2" IsChecked="{Binding Path=Bun}" Foreground="White">
+           HOLD BUN
         </CheckBox>
-        <CheckBox Name="Ketchup" Grid.Column="1" Grid.Row="3" IsChecked="True" Foreground="White">
-            KETCHUP
+        <CheckBox Name="Ketchup" Grid.Column="1" Grid.Row="3" IsChecked="{Binding Path=Ketchup}" Foreground="White">
+           HOLD KETCHUP
         </CheckBox>
-        <CheckBox Name="Mustard" Grid.Column="1" Grid.Row="4" IsChecked="True" Foreground="White">
-            MUSTARD
+        <CheckBox Name="Mustard" Grid.Column="1" Grid.Row="4" IsChecked="{Binding Path=Mustard}" Foreground="White">
+            HOLD MUSTARD
         </CheckBox>
-        <CheckBox Name="Pickle" Grid.Column="1" Grid.Row="5" IsChecked="True" Foreground="White">
-            PICKLE
+        <CheckBox Name="Pickle" Grid.Column="1" Grid.Row="5" IsChecked="{Binding Path=Pickle}" Foreground="White">
+            HOLD PICKLE
         </CheckBox>
-        <CheckBox Name="Cheese" Grid.Column="1" Grid.Row="6" IsChecked="True" Foreground="White">
-            CHEESE
+        <CheckBox Name="Cheese" Grid.Column="1" Grid.Row="6" IsChecked="{Binding Path=Cheese}" Foreground="White">
+            HOLD CHEESE
         </CheckBox>
 
     </Grid>

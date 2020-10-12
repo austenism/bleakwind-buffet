@@ -22,7 +22,7 @@ namespace BleakwindBuffet.Data.Entrees
         private bool hashbrowns = true; //all of the ingredients that be removed
         private bool pancake = true;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// returns the name of the entree
@@ -66,7 +66,8 @@ namespace BleakwindBuffet.Data.Entrees
                     }
                 }
                 sausage = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sausage"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SausageLink"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         //whether or not eggs should be included
@@ -88,6 +89,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 egg = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         //whether or not there should be hash browns
@@ -108,7 +110,8 @@ namespace BleakwindBuffet.Data.Entrees
                     }
                 }
                 hashbrowns = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Hashbrowns"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("HashBrowns"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         //whether or not there should be pancakes
@@ -130,6 +133,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 pancake = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pancake"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
     }

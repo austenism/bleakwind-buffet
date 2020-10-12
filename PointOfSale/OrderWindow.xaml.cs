@@ -4,6 +4,7 @@
 * Purpose: contains all c# code for the order window
 */
 
+using BleakwindBuffet.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -27,6 +28,22 @@ namespace PointOfSale
         public OrderWindow()
         {
             InitializeComponent();
+        }
+
+        private void removeButton_Click(object sender, RoutedEventArgs e)
+        {
+            Order order = (Order)DataContext;
+            object ob = orderList.SelectedItem;
+            if(ob != null)
+            {
+                order.Remove((IOrderItem)ob);
+            }
+
+            orderList.Items.Clear();
+            foreach (IOrderItem item in order.Items)
+            {
+                orderList.Items.Add(item);
+            }
         }
     }
 }

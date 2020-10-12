@@ -23,7 +23,7 @@ namespace BleakwindBuffet.Data.Drinks
         private bool ice = false;
         private Size size;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// returns the name of the drink

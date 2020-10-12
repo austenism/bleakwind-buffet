@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
 
 namespace PointOfSale.EntreeMenus
 {
@@ -49,15 +50,9 @@ namespace PointOfSale.EntreeMenus
         }
 
         private void AddItem_Click(object sender, RoutedEventArgs e)
-        { //EXAMPLE FOR LATER FIX THIS TO WORK
-            Border mainWindowBorder = (Border)this.Parent;
-            Grid mainWindowGrid = (Grid)mainWindowBorder.Parent;
-            MainWindow mainWindow = (MainWindow)mainWindowGrid.Parent;
-            OrderWindow orderWindow = (OrderWindow)mainWindow.orderWindowBorder.Child;
-
-
-            BleakwindBuffet.Data.Entrees.DoubleDraugr doubleDraugr = new BleakwindBuffet.Data.Entrees.DoubleDraugr();
-            orderWindow.orderList.Items.Add(doubleDraugr.ToString());
+        {
+            Order order = (Order)DataContext;
+            order.Add(burg);
         }
     }
 }

@@ -4,6 +4,7 @@
 * Purpose: contains all c# code for the main window
 */
 
+using BleakwindBuffet.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,15 +28,49 @@ namespace PointOfSale
     public partial class MainWindow : Window
     {
         /// <summary>
-        /// when the program starts it smacks a frontpage on there
+        /// when the program starts it smacks a frontpage on there and also an orderwindow
         /// </summary>
         public MainWindow()
         {
             InitializeComponent();
+            
+
             mainWindowBorder.Child = new FrontPage();
 
             orderWindowBorder.Child = new OrderWindow();
+
+
+            DataContext = new Order();
+            Order order = (Order)DataContext;
+            OrderWindow orderWindow = (OrderWindow)orderWindowBorder.Child;
+            orderWindow.numberLabel.Content = "Order Number: " + order.Number;
+
+
+            mainWindowBorder.DataContext = this.DataContext;
+            orderWindowBorder.DataContext = this.DataContext;
         }
-        
+
+        private void newOrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            //DataContext = new Order();
+            Order order = (Order)DataContext;
+
+            if (order.Items.Count > 0)
+            {
+                while(order.Items.Count > 0)
+                {
+                    order.Items.RemoveAt(0);
+                }
+                ++order.Number;
+            }
+
+            OrderWindow orderWindow = (OrderWindow)orderWindowBorder.Child;
+            orderWindow.numberLabel.Content = "Order Number: " + order.Number;
+            orderWindow.orderList.Items.Clear();
+            foreach (IOrderItem item in order.Items)
+            {
+                orderWindow.orderList.Items.Add(item);
+            }
+        }
     }
 }

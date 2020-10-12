@@ -15,14 +15,21 @@
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
 
-        <Border Background="Black" Grid.Column="0"/>
-        <Rectangle Grid.Column="0" Grid.ColumnSpan="2">
+        <Border Background="Black" Grid.Column="0" Grid.RowSpan="2"/>
+        <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <Rectangle.Fill><!--I know this is copyrighted but oh well-->
                 <ImageBrush Stretch="None" ImageSource="{StaticResource skyrim}"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Border Name="mainWindowBorder" Grid.Column="0" BorderThickness="1" BorderBrush="White"/>
+        <Border Name="mainWindowBorder" Grid.Column="0" Grid.RowSpan="2" BorderThickness="1" BorderBrush="White"/>
         <Border Name="orderWindowBorder" Grid.Column="1" BorderThickness="1" BorderBrush="White" Background="Black"/>
+        <Button Click="newOrderButton_Click" Name="newOrderButton" Grid.Column="1" Grid.Row="1">
+            NEW ORDER
+        </Button>
     </Grid>
 </Window>

@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
 
 namespace PointOfSale.DrinkMenus
 {
@@ -46,7 +47,8 @@ namespace PointOfSale.DrinkMenus
 
         private void AddItem_Click(object sender, RoutedEventArgs e)
         {
-
+            Order order = (Order)DataContext;
+            order.Add(drink);
         }
     }
 }

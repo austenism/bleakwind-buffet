@@ -21,7 +21,7 @@ namespace BleakwindBuffet.Data.Drinks
         private Size size;
         private bool decaf = false;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
 
         public bool Decaf { get => decaf; 
             set {
@@ -132,7 +132,7 @@ namespace BleakwindBuffet.Data.Drinks
                     }
                 }
                 cream = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cream"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("RoomForCream"));
             }
 
         }

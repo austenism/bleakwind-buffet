@@ -21,7 +21,7 @@ namespace BleakwindBuffet.Data.Entrees
         private bool onion = true;
         private bool roll = true;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// returns the name of the entree
@@ -66,6 +66,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 sirloin = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         //whether or not onions should be included
@@ -87,6 +88,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 onion = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         //whether or not the roll should be included
@@ -108,6 +110,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 roll = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
     }

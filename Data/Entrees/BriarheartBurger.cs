@@ -6,6 +6,8 @@
 
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
+
 namespace BleakwindBuffet.Data.Entrees
 {
     public class BriarheartBurger : Entree, INotifyPropertyChanged
@@ -19,7 +21,7 @@ namespace BleakwindBuffet.Data.Entrees
         private bool pickle = true;
         private bool cheese = true;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// returns the name of the entree
@@ -27,7 +29,13 @@ namespace BleakwindBuffet.Data.Entrees
         /// <returns>the name of the entree</returns>
         public override string ToString()
         {
-            return "Briarheart Burger";
+            StringBuilder sb = new StringBuilder();
+            foreach(string s in SpecialInstructions)
+            {
+                sb.Append("\n" + "-" + s);
+            }
+            string sbi = sb.ToString();
+            return $"Briarheart Burger\n{Price}{sbi}";
         }
        
 
@@ -66,6 +74,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 bun = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         /// <summary>
@@ -89,6 +98,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 ketchup = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         /// <summary>
@@ -112,6 +122,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 mustard = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         //whether or not pickles should be on the burger
@@ -133,6 +144,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 pickle = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         //whether or not cheese should be on the burger
@@ -154,6 +166,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 cheese = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 

@@ -16,6 +16,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Entrees;
 
 namespace PointOfSale.EntreeMenus
 {
@@ -41,7 +43,8 @@ namespace PointOfSale.EntreeMenus
 
         private void AddItem_Click(object sender, RoutedEventArgs e)
         {
-
+            Order order = (Order)DataContext;
+            order.Add(new BleakwindBuffet.Data.Entrees.ThugsTBone());
         }
     }
 }

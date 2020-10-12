@@ -19,12 +19,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             var dish = new SmokehouseSkeleton();
 
-            Assert.PropertyChanged(dish, "Sausage", () =>
+            Assert.PropertyChanged(dish, "SausageLink", () =>
             {
                 dish.SausageLink = true;
             });
 
-            Assert.PropertyChanged(dish, "Sausage", () =>
+            Assert.PropertyChanged(dish, "SausageLink", () =>
             {
                 dish.SausageLink = false;
             });
@@ -49,12 +49,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             var dish = new SmokehouseSkeleton();
 
-            Assert.PropertyChanged(dish, "Hashbrowns", () =>
+            Assert.PropertyChanged(dish, "HashBrowns", () =>
             {
                 dish.HashBrowns = true;
             });
 
-            Assert.PropertyChanged(dish, "Hashbrowns", () =>
+            Assert.PropertyChanged(dish, "HashBrowns", () =>
             {
                 dish.HashBrowns = false;
             });

@@ -25,7 +25,7 @@ namespace BleakwindBuffet.Data.Entrees
         private bool bacon = true;
         private bool egg = true;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// returns the name of the entree
@@ -72,6 +72,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 bun = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         /// <summary>
@@ -95,6 +96,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 ketchup = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         /// <summary>
@@ -118,6 +120,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 mustard = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         //whether or not pickles should be on the burger
@@ -139,6 +142,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 pickle = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         //whether or not cheese should be on the burger
@@ -160,6 +164,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 cheese = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         //whether or not tomatoes should be on the burger
@@ -175,6 +180,7 @@ namespace BleakwindBuffet.Data.Entrees
 
                 tomato = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         //whether or not lettuce should be on the burger
@@ -196,6 +202,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 lettuce = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lettuce"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         //whether or not mayo should be on the burger
@@ -217,6 +224,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 mayo = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mayo"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         //whether or not there should be bacon on the burger
@@ -238,6 +246,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 bacon = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bacon"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         //whether or not there should be an egg on the burger
@@ -259,6 +268,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 egg = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 

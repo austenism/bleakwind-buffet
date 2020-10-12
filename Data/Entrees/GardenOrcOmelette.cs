@@ -22,7 +22,7 @@ namespace BleakwindBuffet.Data.Entrees
         private bool tomato = true; //all of the ingredients that be removed
         private bool cheddar = true;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// returns the name of the entree
@@ -67,6 +67,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 broc = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Broccoli"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         //whether or not eggs should be included
@@ -88,6 +89,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 mushrooms = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mushrooms"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         //whether or not there should be hash browns
@@ -109,6 +111,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 tomato = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
         //whether or not there should be pancakes
@@ -130,6 +133,7 @@ namespace BleakwindBuffet.Data.Entrees
                 }
                 cheddar = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheddar"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
     }

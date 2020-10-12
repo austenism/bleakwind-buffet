@@ -9,9 +9,11 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// The base class representing common properties of drinks
     /// </summary>
-    public abstract class Drink : IOrderItem
+    public abstract class Drink : IOrderItem, INotifyPropertyChanged
     {
-        
+        public virtual event PropertyChangedEventHandler PropertyChanged;
+
+
         /// <summary>
         /// the size of the drink
         /// </summary>
