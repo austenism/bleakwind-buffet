@@ -25,11 +25,10 @@ namespace PointOfSale.SideMenus
     /// </summary>
     public partial class MadOtarGrits : UserControl
     {
-        BleakwindBuffet.Data.Sides.MadOtarGrits side = new BleakwindBuffet.Data.Sides.MadOtarGrits();
         public MadOtarGrits()
         {
             InitializeComponent();
-            Size.DataContext = side.Size;
+            //Size.DataContext = side.Size;
         }
         /// <summary>
         /// goes back to the prvious menu
@@ -45,7 +44,23 @@ namespace PointOfSale.SideMenus
         private void AddItem_Click(object sender, RoutedEventArgs e)
         {
             Order order = (Order)DataContext;
+            BleakwindBuffet.Data.Sides.MadOtarGrits side = new BleakwindBuffet.Data.Sides.MadOtarGrits();
+
+            side.Size = (BleakwindBuffet.Data.Enums.Size)Size.SelectedIndex;
             order.Add(side);
+
+
+            //navigates to the main window and the order list window
+            Border mainWindowBorder = (Border)this.Parent;
+            Grid mainWindowGrid = (Grid)mainWindowBorder.Parent;
+            MainWindow mainWindow = (MainWindow)mainWindowGrid.Parent;
+            OrderWindow orderWindow = (OrderWindow)mainWindow.orderWindowBorder.Child;
+
+            orderWindow.orderList.Items.Clear();
+            foreach (IOrderItem item in order.Items)
+            {
+                orderWindow.orderList.Items.Add(item);
+            }
         }
     }
 }

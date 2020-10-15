@@ -25,18 +25,17 @@ namespace PointOfSale.EntreeMenus
     /// </summary>
     public partial class DoubleDraugr : UserControl
     {
-        BleakwindBuffet.Data.Entrees.DoubleDraugr burg = new BleakwindBuffet.Data.Entrees.DoubleDraugr();
         public DoubleDraugr()
         {
             InitializeComponent();
-            Bun.DataContext = burg.Bun;
-            Ketchup.DataContext = burg.Ketchup;
-            Mustard.DataContext = burg.Mustard;
-            Pickle.DataContext = burg.Pickle;
-            Cheese.DataContext = burg.Cheese;
-            Tomato.DataContext = burg.Tomato;
-            Lettuce.DataContext = burg.Lettuce;
-            Mayo.DataContext = burg.Mayo;
+            //Bun.DataContext = burg.Bun;
+            //Ketchup.DataContext = burg.Ketchup;
+            //Mustard.DataContext = burg.Mustard;
+            //Pickle.DataContext = burg.Pickle;
+            //Cheese.DataContext = burg.Cheese;
+            //Tomato.DataContext = burg.Tomato;
+            //Lettuce.DataContext = burg.Lettuce;
+            //Mayo.DataContext = burg.Mayo;
         }
         /// <summary>
         /// goes back to the prvious menu
@@ -52,7 +51,30 @@ namespace PointOfSale.EntreeMenus
         private void AddItem_Click(object sender, RoutedEventArgs e)
         {
             Order order = (Order)DataContext;
+            BleakwindBuffet.Data.Entrees.DoubleDraugr burg = new BleakwindBuffet.Data.Entrees.DoubleDraugr();
+
+            burg.Bun = !(bool)Bun.IsChecked;
+            burg.Cheese = !(bool)Cheese.IsChecked;
+            burg.Mustard = !(bool)Mustard.IsChecked;
+            burg.Pickle = !(bool)Pickle.IsChecked;
+            burg.Ketchup = !(bool)Ketchup.IsChecked;
+            burg.Tomato = !(bool)Tomato.IsChecked;
+            burg.Lettuce = !(bool)Lettuce.IsChecked;
+            burg.Mayo = !(bool)Mayo.IsChecked;
             order.Add(burg);
+
+
+            //navigates to the main window and the order list window
+            Border mainWindowBorder = (Border)this.Parent;
+            Grid mainWindowGrid = (Grid)mainWindowBorder.Parent;
+            MainWindow mainWindow = (MainWindow)mainWindowGrid.Parent;
+            OrderWindow orderWindow = (OrderWindow)mainWindow.orderWindowBorder.Child;
+
+            orderWindow.orderList.Items.Clear();
+            foreach (IOrderItem item in order.Items)
+            {
+                orderWindow.orderList.Items.Add(item);
+            }
         }
     }
 }

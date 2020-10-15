@@ -27,7 +27,13 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{Size} Markarth Milk";
+            StringBuilder sb = new StringBuilder();
+            foreach (string s in SpecialInstructions)
+            {
+                sb.Append("\n" + "-" + s);
+            }
+            string sbi = sb.ToString();
+            return $"{Size} Markarth Milk{sbi}\n{Price}";
         }
 
         public override Size Size

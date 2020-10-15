@@ -45,14 +45,14 @@
             PHILLY POACHER
         </Label>
 
-        <CheckBox Name="Sirloin" Grid.Column="1" Grid.Row="2" IsChecked="True" Foreground="White">
-            SIRLOIN
+        <CheckBox Name="Sirloin" Grid.Column="1" Grid.Row="2" Foreground="White">
+            HOLD SIRLOIN
         </CheckBox>
-        <CheckBox Name="Onion" Grid.Column="1" Grid.Row="3" IsChecked="True" Foreground="White">
-            ONION
+        <CheckBox Name="Onion" Grid.Column="1" Grid.Row="3" Foreground="White">
+            HOLD ONION
         </CheckBox>
-        <CheckBox Name="Roll" Grid.Column="1" Grid.Row="4" IsChecked="True" Foreground="White">
-            ROLL
+        <CheckBox Name="Roll" Grid.Column="1" Grid.Row="4" Foreground="White">
+            HOLD ROLL
         </CheckBox>
 
     </Grid>

@@ -49,11 +49,23 @@ namespace BleakwindBuffet.Data.Drinks
         {
             if (!Decaf)
             {
-                return $"{Size} Candlehearth Coffee";
+                StringBuilder sb = new StringBuilder();
+                foreach (string s in SpecialInstructions)
+                {
+                    sb.Append("\n" + "-" + s);
+                }
+                string sbi = sb.ToString();
+                return $"{Size} Candlehearth Coffee{sbi}\n{Price}";
             }
             else
             {
-                return $"{Size} Decaf Candlehearth Coffee";
+                StringBuilder sb = new StringBuilder();
+                foreach (string s in SpecialInstructions)
+                {
+                    sb.Append("\n" + "-" + s);
+                }
+                string sbi = sb.ToString();
+                return $"{Size} Decaf Candlehearth Coffee{sbi}\n{Price}";
             }
         }
 

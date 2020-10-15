@@ -45,17 +45,17 @@
             SMOKEHOUSE SKELETON
         </Label>
 
-        <CheckBox Name="Sausage" Grid.Column="1" Grid.Row="2" IsChecked="True" Foreground="White">
-            SAUSAGE
+        <CheckBox Name="Sausage" Grid.Column="1" Grid.Row="2" Foreground="White">
+            HOLD SAUSAGE
         </CheckBox>
-        <CheckBox Name="Egg" Grid.Column="1" Grid.Row="3" IsChecked="True" Foreground="White">
-            EGG
+        <CheckBox Name="Egg" Grid.Column="1" Grid.Row="3" Foreground="White">
+            HOLD EGG
         </CheckBox>
-        <CheckBox Name="Hashbrowns" Grid.Column="1" Grid.Row="4" IsChecked="True" Foreground="White">
-            HASHBROWNS
+        <CheckBox Name="Hashbrowns" Grid.Column="1" Grid.Row="4" Foreground="White">
+            HOLD HASHBROWNS
         </CheckBox>
-        <CheckBox Name="Pancake" Grid.Column="1" Grid.Row="5" IsChecked="True" Foreground="White">
-            PANCAKE
+        <CheckBox Name="Pancake" Grid.Column="1" Grid.Row="5" Foreground="White">
+            HOLD PANCAKE
         </CheckBox>
 
     </Grid>

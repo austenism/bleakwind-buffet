@@ -25,13 +25,12 @@ namespace PointOfSale.DrinkMenus
     /// </summary>
     public partial class SailorSoda : UserControl
     {
-        BleakwindBuffet.Data.Drinks.SailorSoda drink = new BleakwindBuffet.Data.Drinks.SailorSoda();
         public SailorSoda()
         {
             InitializeComponent();
-            Ice.DataContext = drink.Ice;
-            Flavor.DataContext = drink.Flavor;
-            Size.DataContext = drink.Size;
+            //Ice.DataContext = drink.Ice;
+            //Flavor.DataContext = drink.Flavor;
+            //Size.DataContext = drink.Size;
         }
         /// <summary>
         /// goes back to the prvious menu
@@ -47,7 +46,25 @@ namespace PointOfSale.DrinkMenus
         private void AddItem_Click(object sender, RoutedEventArgs e)
         {
             Order order = (Order)DataContext;
+            BleakwindBuffet.Data.Drinks.SailorSoda drink = new BleakwindBuffet.Data.Drinks.SailorSoda();
+
+            drink.Size = (BleakwindBuffet.Data.Enums.Size)Size.SelectedIndex;
+            drink.Flavor = (BleakwindBuffet.Data.Enums.SodaFlavor)Flavor.SelectedIndex;
+            drink.Ice = (bool)Ice.IsChecked;
             order.Add(drink);
+
+
+            //navigates to the main window and the order list window
+            Border mainWindowBorder = (Border)this.Parent;
+            Grid mainWindowGrid = (Grid)mainWindowBorder.Parent;
+            MainWindow mainWindow = (MainWindow)mainWindowGrid.Parent;
+            OrderWindow orderWindow = (OrderWindow)mainWindow.orderWindowBorder.Child;
+
+            orderWindow.orderList.Items.Clear();
+            foreach (IOrderItem item in order.Items)
+            {
+                orderWindow.orderList.Items.Add(item);
+            }
         }
     }
 }

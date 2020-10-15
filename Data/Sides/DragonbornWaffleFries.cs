@@ -37,7 +37,13 @@ namespace BleakwindBuffet.Data.Sides
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{Size} Dragonborn Waffle Fries";
+            StringBuilder sb = new StringBuilder();
+            foreach (string s in SpecialInstructions)
+            {
+                sb.Append("\n" + "-" + s);
+            }
+            string sbi = sb.ToString();
+            return $"{Size} Dragonborn Waffle Fries{sbi}\n{Price}";
         }
 
         /// <summary>

@@ -59,7 +59,7 @@
             ICE
         </CheckBox>
         <CheckBox Name="Cream" Grid.Column="1" Grid.Row="6" IsChecked="False" Foreground="White">
-            CREAM
+            ROOM FOR CREAM
         </CheckBox>
         <CheckBox Name="Decaf" Grid.Column="1" Grid.Row="7" IsChecked="False" Foreground="White">
             DECAF

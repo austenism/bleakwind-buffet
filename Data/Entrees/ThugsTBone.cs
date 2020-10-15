@@ -22,7 +22,13 @@ namespace BleakwindBuffet.Data.Entrees
         /// <returns>the name of the entree</returns>
         public override string ToString()
         {
-            return "Thugs T-Bone";
+            StringBuilder sb = new StringBuilder();
+            foreach (string s in SpecialInstructions)
+            {
+                sb.Append("\n" + "-" + s);
+            }
+            string sbi = sb.ToString();
+            return $"Thugs T-Bone{sbi}\n{Price}";
         }
         /// <summary>
         /// property that holds the price

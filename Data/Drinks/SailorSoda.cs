@@ -49,7 +49,13 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{Size} {Flavor} Sailor Soda";
+            StringBuilder sb = new StringBuilder();
+            foreach (string s in SpecialInstructions)
+            {
+                sb.Append("\n" + "-" + s);
+            }
+            string sbi = sb.ToString();
+            return $"{Size} {Flavor} Sailor Soda{sbi}\n{Price}";
         }
         /// <summary>
         /// property that holds the price

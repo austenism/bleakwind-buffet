@@ -44,7 +44,22 @@ namespace PointOfSale.EntreeMenus
         private void AddItem_Click(object sender, RoutedEventArgs e)
         {
             Order order = (Order)DataContext;
-            order.Add(new BleakwindBuffet.Data.Entrees.ThugsTBone());
+            BleakwindBuffet.Data.Entrees.ThugsTBone notBurg = new BleakwindBuffet.Data.Entrees.ThugsTBone();
+
+            order.Add(notBurg);
+
+
+            //navigates to the main window and the order list window
+            Border mainWindowBorder = (Border)this.Parent;
+            Grid mainWindowGrid = (Grid)mainWindowBorder.Parent;
+            MainWindow mainWindow = (MainWindow)mainWindowGrid.Parent;
+            OrderWindow orderWindow = (OrderWindow)mainWindow.orderWindowBorder.Child;
+
+            orderWindow.orderList.Items.Clear();
+            foreach (IOrderItem item in order.Items)
+            {
+                orderWindow.orderList.Items.Add(item);
+            }
         }
     }
 }

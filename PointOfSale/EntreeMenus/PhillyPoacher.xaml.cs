@@ -25,13 +25,12 @@ namespace PointOfSale.EntreeMenus
     /// </summary>
     public partial class PhillyPoacher : UserControl
     {
-        BleakwindBuffet.Data.Entrees.PhillyPoacher notBurg = new BleakwindBuffet.Data.Entrees.PhillyPoacher();
         public PhillyPoacher()
         {
             InitializeComponent();
-            Sirloin.DataContext = notBurg.Sirloin;
-            Onion.DataContext = notBurg.Onion;
-            Roll.DataContext = notBurg.Roll;
+            //Sirloin.DataContext = notBurg.Sirloin;
+            //Onion.DataContext = notBurg.Onion;
+            //Roll.DataContext = notBurg.Roll;
         }
         /// <summary>
         /// goes back to the prvious menu
@@ -47,7 +46,25 @@ namespace PointOfSale.EntreeMenus
         private void AddItem_Click(object sender, RoutedEventArgs e)
         {
             Order order = (Order)DataContext;
+            BleakwindBuffet.Data.Entrees.PhillyPoacher notBurg = new BleakwindBuffet.Data.Entrees.PhillyPoacher();
+
+            notBurg.Sirloin = !((bool)Sirloin.IsChecked);
+            notBurg.Onion = !((bool)Onion.IsChecked);
+            notBurg.Roll = !((bool)Roll.IsChecked);
             order.Add(notBurg);
+
+
+            //navigates to the main window and the order list window
+            Border mainWindowBorder = (Border)this.Parent;
+            Grid mainWindowGrid = (Grid)mainWindowBorder.Parent;
+            MainWindow mainWindow = (MainWindow)mainWindowGrid.Parent;
+            OrderWindow orderWindow = (OrderWindow)mainWindow.orderWindowBorder.Child;
+
+            orderWindow.orderList.Items.Clear();
+            foreach (IOrderItem item in order.Items)
+            {
+                orderWindow.orderList.Items.Add(item);
+            }
         }
     }
 }

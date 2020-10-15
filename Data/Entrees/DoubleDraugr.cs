@@ -6,6 +6,8 @@
 
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
+
 namespace BleakwindBuffet.Data.Entrees
 {
     public class DoubleDraugr : Entree, INotifyPropertyChanged
@@ -31,7 +33,13 @@ namespace BleakwindBuffet.Data.Entrees
         /// <returns>the name of the entree</returns>
         public override string ToString()
         {
-            return "Double Draugr";
+            StringBuilder sb = new StringBuilder();
+            foreach (string s in SpecialInstructions)
+            {
+                sb.Append("\n" + "-" + s);
+            }
+            string sbi = sb.ToString();
+            return $"Double Draugr{sbi}\n{Price}";
         }
 
 

@@ -35,7 +35,7 @@ namespace BleakwindBuffet.Data.Entrees
                 sb.Append("\n" + "-" + s);
             }
             string sbi = sb.ToString();
-            return $"Briarheart Burger\n{Price}{sbi}";
+            return $"Briarheart Burger{sbi}\n{Price}";
         }
        
 

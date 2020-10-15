@@ -45,35 +45,35 @@
             THALMOR TRIPLE
         </Label>
 
-        <CheckBox Name="Bun" Grid.Column="1" Grid.Row="2" IsChecked="True" Foreground="White">
-            BUN
+        <CheckBox Name="Bun" Grid.Column="1" Grid.Row="2" Foreground="White">
+            HOLD BUN
         </CheckBox>
-        <CheckBox Name="Ketchup" Grid.Column="1" Grid.Row="3" IsChecked="True" Foreground="White">
-            KETCHUP
+        <CheckBox Name="Ketchup" Grid.Column="1" Grid.Row="3" Foreground="White">
+            HOLD KETCHUP
         </CheckBox>
-        <CheckBox Name="Mustard" Grid.Column="1" Grid.Row="4" IsChecked="True" Foreground="White">
-            MUSTARD
+        <CheckBox Name="Mustard" Grid.Column="1" Grid.Row="4" Foreground="White">
+            HOLD MUSTARD
         </CheckBox>
-        <CheckBox Name="Pickle" Grid.Column="1" Grid.Row="5" IsChecked="True" Foreground="White">
-            PICKLE
+        <CheckBox Name="Pickle" Grid.Column="1" Grid.Row="5" Foreground="White">
+            HOLD PICKLE
         </CheckBox>
-        <CheckBox Name="Cheese" Grid.Column="1" Grid.Row="6" IsChecked="True" Foreground="White">
-            CHEESE
+        <CheckBox Name="Cheese" Grid.Column="1" Grid.Row="6" Foreground="White">
+            HOLD CHEESE
         </CheckBox>
-        <CheckBox Name="Tomato" Grid.Column="1" Grid.Row="7" IsChecked="True" Foreground="White">
-            TOMATO
+        <CheckBox Name="Tomato" Grid.Column="1" Grid.Row="7" Foreground="White">
+            HOLD TOMATO
         </CheckBox>
-        <CheckBox Name="Lettuce" Grid.Column="1" Grid.Row="8" IsChecked="True" Foreground="White">
-            LETTUCE
+        <CheckBox Name="Lettuce" Grid.Column="1" Grid.Row="8" Foreground="White">
+            HOLD LETTUCE
         </CheckBox>
-        <CheckBox Name="Mayo" Grid.Column="1" Grid.Row="9" IsChecked="True" Foreground="White">
-            MAYO
+        <CheckBox Name="Mayo" Grid.Column="1" Grid.Row="9" Foreground="White">
+            HOLD MAYO
         </CheckBox>
-        <CheckBox Name="Bacon" Grid.Column="1" Grid.Row="10" IsChecked="True" Foreground="White">
-            BACON
+        <CheckBox Name="Bacon" Grid.Column="1" Grid.Row="10" Foreground="White">
+            HOLD BACON
         </CheckBox>
-        <CheckBox Name="Egg" Grid.Column="1" Grid.Row="11" IsChecked="True" Foreground="White">
-            EGG
+        <CheckBox Name="Egg" Grid.Column="1" Grid.Row="11" Foreground="White">
+            HOLD EGG
         </CheckBox>
 
     </Grid>

@@ -63,6 +63,7 @@ namespace PointOfSale
                 }
                 ++order.Number;
             }
+            
 
             OrderWindow orderWindow = (OrderWindow)orderWindowBorder.Child;
             orderWindow.numberLabel.Content = "Order Number: " + order.Number;

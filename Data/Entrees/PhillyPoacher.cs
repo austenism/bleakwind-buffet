@@ -29,7 +29,13 @@ namespace BleakwindBuffet.Data.Entrees
         /// <returns>the name of the entree</returns>
         public override string ToString()
         {
-            return "Philly Poacher";
+            StringBuilder sb = new StringBuilder();
+            foreach (string s in SpecialInstructions)
+            {
+                sb.Append("\n" + "-" + s);
+            }
+            string sbi = sb.ToString();
+            return $"Philly Poacher{sbi}\n{Price}";
         }
         /// <summary>
         /// property that holds the price

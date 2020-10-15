@@ -25,12 +25,11 @@ namespace PointOfSale.DrinkMenus
     /// </summary>
     public partial class MarkarthMilk : UserControl
     {
-        BleakwindBuffet.Data.Drinks.MarkarthMilk drink = new BleakwindBuffet.Data.Drinks.MarkarthMilk();
         public MarkarthMilk()
         {
             InitializeComponent();
-            Size.DataContext = drink.Size;
-            Ice.DataContext = drink.Ice;
+            //Size.DataContext = drink.Size;
+            //Ice.DataContext = drink.Ice;
         }
         /// <summary>
         /// goes back to the prvious menu
@@ -46,7 +45,24 @@ namespace PointOfSale.DrinkMenus
         private void AddItem_Click(object sender, RoutedEventArgs e)
         {
             Order order = (Order)DataContext;
+            BleakwindBuffet.Data.Drinks.MarkarthMilk drink = new BleakwindBuffet.Data.Drinks.MarkarthMilk();
+
+            drink.Size = (BleakwindBuffet.Data.Enums.Size)Size.SelectedIndex;
+            drink.Ice = (bool)Ice.IsChecked;
             order.Add(drink);
+
+
+            //navigates to the main window and the order list window
+            Border mainWindowBorder = (Border)this.Parent;
+            Grid mainWindowGrid = (Grid)mainWindowBorder.Parent;
+            MainWindow mainWindow = (MainWindow)mainWindowGrid.Parent;
+            OrderWindow orderWindow = (OrderWindow)mainWindow.orderWindowBorder.Child;
+
+            orderWindow.orderList.Items.Clear();
+            foreach (IOrderItem item in order.Items)
+            {
+                orderWindow.orderList.Items.Add(item);
+            }
         }
     }
 }

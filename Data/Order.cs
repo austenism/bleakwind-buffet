@@ -41,21 +41,21 @@ namespace BleakwindBuffet.Data
                 {
                     total += item.Price;
                 }
-                return total;
+                return Math.Round(total, 2);
             }
         }
         public double Tax
         {
             get
             {
-                return Subtotal * SalesTaxRate;
+                return Math.Round(Subtotal * SalesTaxRate, 2);
             }
         }
         public double Total
         {
             get
             {
-                return Subtotal + Tax;
+                return Math.Round(Subtotal + Tax, 2);
             }
         }
 

@@ -45,17 +45,17 @@
             GARDEN ORC OMELETTE
         </Label>
 
-        <CheckBox Name="Broccoli" Grid.Column="1" Grid.Row="2" IsChecked="True" Foreground="White">
-            BROCCOLI
+        <CheckBox Name="Broccoli" Grid.Column="1" Grid.Row="2" Foreground="White">
+            HOLD BROCCOLI
         </CheckBox>
-        <CheckBox Name="Mushrooms" Grid.Column="1" Grid.Row="3" IsChecked="True" Foreground="White">
-            MUSHROOMS
+        <CheckBox Name="Mushrooms" Grid.Column="1" Grid.Row="3" Foreground="White">
+            HOLD MUSHROOMS
         </CheckBox>
-        <CheckBox Name="Tomato" Grid.Column="1" Grid.Row="4" IsChecked="True" Foreground="White">
-            TOMTATO
+        <CheckBox Name="Tomato" Grid.Column="1" Grid.Row="4" Foreground="White">
+            HOLD TOMTATO
         </CheckBox>
-        <CheckBox Name="Cheddar" Grid.Column="1" Grid.Row="5" IsChecked="True" Foreground="White">
-            CHEDDAR
+        <CheckBox Name="Cheddar" Grid.Column="1" Grid.Row="5" Foreground="White">
+            HOLD CHEDDAR
         </CheckBox>
 
     </Grid>
