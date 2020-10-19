@@ -31,7 +31,11 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// event handler for clicking the remove button, removes the selected item from the order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void removeButton_Click(object sender, RoutedEventArgs e)
         {
             Order order = (Order)DataContext;
@@ -47,95 +51,115 @@ namespace PointOfSale
                 orderList.Items.Add(item);
             }
         }
+        /// <summary>
+        /// event handler for clicking the complete order button, opens the payment selection screen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void completeButton_Click(object sender, RoutedEventArgs e)
+        {
+            Border orderBorder = (Border)Parent;
+            Grid mainGrid = (Grid)orderBorder.Parent;
+            MainWindow mainWindow = (MainWindow)mainGrid.Parent;
+
+            Order order = (Order)DataContext;
+            List<IOrderItem> list = new List<IOrderItem>();
+            foreach(IOrderItem item in order.Items)
+            {
+                list.Add(item);
+            }
+
+            mainWindow.mainWindowBorder.Child = new PaymentWindow(order.Number, list, order.Subtotal, order.Tax, order.Total);
+        }
 
         //private void orderList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         //{
-            //IOrderItem item = (IOrderItem)orderList.SelectedItem;
-            ////entrees
-            //if(item is BleakwindBuffet.Data.Entrees.BriarheartBurger)
-            //{
-            //    BleakwindBuffet.Data.Entrees.BriarheartBurger food = (BleakwindBuffet.Data.Entrees.BriarheartBurger)item;
+        //IOrderItem item = (IOrderItem)orderList.SelectedItem;
+        ////entrees
+        //if(item is BleakwindBuffet.Data.Entrees.BriarheartBurger)
+        //{
+        //    BleakwindBuffet.Data.Entrees.BriarheartBurger food = (BleakwindBuffet.Data.Entrees.BriarheartBurger)item;
 
-            //    EntreeMenus.BriarheartBurger menu = new EntreeMenus.BriarheartBurger();
-            //    menu.Bun.IsChecked = !food.Bun;
-            //    menu.Cheese.IsChecked = !food.Cheese;
-            //    menu.Ketchup.IsChecked = !food.Ketchup;
-            //    menu.Mustard.IsChecked = !food.Mustard;
-            //    menu.Pickle.IsChecked = !food.Pickle;
-                
-            //    Border orderBorder = (Border)this.Parent;
-            //    Grid mainGrid = (Grid)orderBorder.Parent;
-            //    MainWindow mainWindow = (MainWindow)mainGrid.Parent;
-            //    mainWindow.mainWindowBorder.Child = menu;
+        //    EntreeMenus.BriarheartBurger menu = new EntreeMenus.BriarheartBurger();
+        //    menu.Bun.IsChecked = !food.Bun;
+        //    menu.Cheese.IsChecked = !food.Cheese;
+        //    menu.Ketchup.IsChecked = !food.Ketchup;
+        //    menu.Mustard.IsChecked = !food.Mustard;
+        //    menu.Pickle.IsChecked = !food.Pickle;
+
+        //    Border orderBorder = (Border)this.Parent;
+        //    Grid mainGrid = (Grid)orderBorder.Parent;
+        //    MainWindow mainWindow = (MainWindow)mainGrid.Parent;
+        //    mainWindow.mainWindowBorder.Child = menu;
 
 
-            //}
-            //else if(item is BleakwindBuffet.Data.Entrees.DoubleDraugr)
-            //{
+        //}
+        //else if(item is BleakwindBuffet.Data.Entrees.DoubleDraugr)
+        //{
 
-            //}
-            //else if(item is BleakwindBuffet.Data.Entrees.ThalmorTriple)
-            //{
+        //}
+        //else if(item is BleakwindBuffet.Data.Entrees.ThalmorTriple)
+        //{
 
-            //}
-            //else if(item is BleakwindBuffet.Data.Entrees.GardenOrcOmelette)
-            //{
+        //}
+        //else if(item is BleakwindBuffet.Data.Entrees.GardenOrcOmelette)
+        //{
 
-            //}
-            //else if(item is BleakwindBuffet.Data.Entrees.PhillyPoacher)
-            //{
+        //}
+        //else if(item is BleakwindBuffet.Data.Entrees.PhillyPoacher)
+        //{
 
-            //}
-            //else if(item is BleakwindBuffet.Data.Entrees.SmokehouseSkeleton)
-            //{
+        //}
+        //else if(item is BleakwindBuffet.Data.Entrees.SmokehouseSkeleton)
+        //{
 
-            //}
-            //else if(item is BleakwindBuffet.Data.Entrees.ThugsTBone)
-            //{
+        //}
+        //else if(item is BleakwindBuffet.Data.Entrees.ThugsTBone)
+        //{
 
-            //}
-            ////sides
-            //else if(item is BleakwindBuffet.Data.Sides.DragonbornWaffleFries)
-            //{
+        //}
+        ////sides
+        //else if(item is BleakwindBuffet.Data.Sides.DragonbornWaffleFries)
+        //{
 
-            //}
-            //else if(item is BleakwindBuffet.Data.Sides.FriedMiraak)
-            //{
+        //}
+        //else if(item is BleakwindBuffet.Data.Sides.FriedMiraak)
+        //{
 
-            //}
-            //else if(item is BleakwindBuffet.Data.Sides.MadOtarGrits)
-            //{
+        //}
+        //else if(item is BleakwindBuffet.Data.Sides.MadOtarGrits)
+        //{
 
-            //}
-            //else if(item is BleakwindBuffet.Data.Sides.VokunSalad)
-            //{
+        //}
+        //else if(item is BleakwindBuffet.Data.Sides.VokunSalad)
+        //{
 
-            //}
-            ////DRINKS
-            //else if(item is BleakwindBuffet.Data.Drinks.AretinoAppleJuice)
-            //{
+        //}
+        ////DRINKS
+        //else if(item is BleakwindBuffet.Data.Drinks.AretinoAppleJuice)
+        //{
 
-            //}
-            //else if(item is BleakwindBuffet.Data.Drinks.CandlehearthCoffee)
-            //{
+        //}
+        //else if(item is BleakwindBuffet.Data.Drinks.CandlehearthCoffee)
+        //{
 
-            //}
-            //else if(item is BleakwindBuffet.Data.Drinks.MarkarthMilk)
-            //{
+        //}
+        //else if(item is BleakwindBuffet.Data.Drinks.MarkarthMilk)
+        //{
 
-            //}
-            //else if(item is BleakwindBuffet.Data.Drinks.SailorSoda)
-            //{
+        //}
+        //else if(item is BleakwindBuffet.Data.Drinks.SailorSoda)
+        //{
 
-            //}
-            //else if (item is BleakwindBuffet.Data.Drinks.WarriorWater)
-            //{
+        //}
+        //else if (item is BleakwindBuffet.Data.Drinks.WarriorWater)
+        //{
 
-            //}
-            //else //should not be reached
-            //{
-            //    throw new NotImplementedException("unknown type detected");
-            //}
+        //}
+        //else //should not be reached
+        //{
+        //    throw new NotImplementedException("unknown type detected");
+        //}
         //}
     }
 }

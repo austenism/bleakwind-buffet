@@ -1,0 +1,334 @@
+﻿<UserControl x:Class="PointOfSale.CashPayment"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="40"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <!--THE TEXT BLOCK ZONE-->
+        <TextBlock Text="100" Foreground="White" Grid.Column="1" Grid.Row="1" FontSize="25"/>
+        <TextBlock Text="50" Foreground="White" Grid.Column="1" Grid.Row="2" FontSize="25"/>
+        <TextBlock Text="20" Foreground="White" Grid.Column="1" Grid.Row="3" FontSize="25"/>
+        <TextBlock Text="10" Foreground="White" Grid.Column="1" Grid.Row="4" FontSize="25"/>
+        <TextBlock Text="5" Foreground="White" Grid.Column="1" Grid.Row="5" FontSize="25"/>
+        <TextBlock Text="2" Foreground="White" Grid.Column="1" Grid.Row="6" FontSize="25"/>
+        <TextBlock Text="1 Bill" Foreground="White" Grid.Column="1" Grid.Row="7" FontSize="15"/>
+
+        <TextBlock Text="1 Coin" Foreground="White" Grid.Column="3" Grid.Row="1" FontSize="15"/>
+        <TextBlock Text="0.50" Foreground="White" Grid.Column="3" Grid.Row="2" FontSize="15"/>
+        <TextBlock Text="0.25" Foreground="White" Grid.Column="3" Grid.Row="3" FontSize="15"/>
+        <TextBlock Text="0.10" Foreground="White" Grid.Column="3" Grid.Row="4" FontSize="15"/>
+        <TextBlock Text="0.05" Foreground="White" Grid.Column="3" Grid.Row="5" FontSize="15"/>
+        <TextBlock Text="0.01" Foreground="White" Grid.Column="3" Grid.Row="6" FontSize="15"/>
+
+        <TextBlock Text="AMOUNT DUE" TextWrapping="Wrap" Grid.Column="1" TextAlignment="Center" Grid.Row="8" Foreground="White" FontSize="9"/>
+        <TextBlock Text="CHANGE DUE" TextWrapping="Wrap" Grid.Column="3" TextAlignment="Center" Grid.Row="8" Foreground="White" FontSize="9"/>
+
+        <!--******************************************************-->
+        <Button Click="backButton_Click" Name="backButton" Grid.Column="4" Grid.Row="7" FontSize="20">
+            BACK TO ORDER
+        </Button>
+        <!--AMOUNT DUE-->
+        <TextBlock Name="amountDue" TextAlignment="Center" FontSize="35" Background="Red" Grid.Column="2" Grid.Row="8">
+            
+        </TextBlock>
+        <!--CHANGE DUE-->
+        <TextBlock Name="changeDue" TextAlignment="Center" FontSize="35" Background="Green" Grid.Column="4" Grid.Row="8">
+
+        </TextBlock>
+
+        <Button Click="completeOrderButton_Click" Name="completeOrderButton" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="9" FontSize="30">
+            COMPLETE ORDER
+        </Button>
+
+        <Border Name="borderHundreds" Grid.Row="1" Grid.Column="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Click="HundredplusButton_Click" Name="HundredplusButton" Grid.Column="0" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    +
+                </Button>
+                <TextBox Name="PayedHundreds" Grid.Column="1" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+
+                </TextBox>
+                <Button Click="HundredminusButton_Click" Name="HundredminusButton" Grid.Column="2" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    -
+                </Button>
+                <TextBox Name="ChangeHundreds" Grid.Column="3" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Grid>
+        </Border>
+        <Border Name="borderFifties" Grid.Column="2" Grid.Row="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Click="FiftyplusButton_Click"  Name="FiftyplusButton" Grid.Column="0" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    +
+                </Button>
+                <TextBox Name="PayedFiftys" Grid.Column="1" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+
+                </TextBox>
+                <Button Click="FiftyminusButton_Click"  Name="FiftyminusButton" Grid.Column="2" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    -
+                </Button>
+                <TextBox Name="ChangeFifties" Grid.Column="3" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Grid>
+        </Border>
+        <Border Name="borderTwenties" Grid.Column="2" Grid.Row="3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Click="twentyPlusButton_Click"  Name="twentyPlusButton" Grid.Column="0" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    +
+                </Button>
+                <TextBox Name="PayedTwenties" Grid.Column="1" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+
+                </TextBox>
+                <Button Click="TwentyminusButton_Click" Name="TwentyminusButton" Grid.Column="2" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    -
+                </Button>
+                <TextBox Name="ChangeTwenties" Grid.Column="3" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Grid>
+        </Border>
+        <Border Name="borderTens" Grid.Column="2" Grid.Row="4">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Click="tenPlusButton_Click" Name="tenPlusButton" Grid.Column="0" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    +
+                </Button>
+                <TextBox Name="PayedTens" Grid.Column="1" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+
+                </TextBox>
+                <Button Click="tenminusButton_Click" Name="tenminusButton" Grid.Column="2" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    -
+                </Button>
+                <TextBox Name="ChangeTens" Grid.Column="3" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Grid>
+        </Border>
+        <Border Name="borderFives" Grid.Column="2" Grid.Row="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Click="fivePlusButton_Click" Name="fivePlusButton" Grid.Column="0" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    +
+                </Button>
+                <TextBox Name="PayedFives" Grid.Column="1" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+
+                </TextBox>
+                <Button Click="fiveminusButton_Click" Name="fiveminusButton" Grid.Column="2" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    -
+                </Button>
+                <TextBox Name="ChangeFives" Grid.Column="3" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Grid>
+        </Border>
+        <Border Name="borderTwos" Grid.Column="2" Grid.Row="6">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Click="twoPlusButton_Click" Name="twoPlusButton" Grid.Column="0" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    +
+                </Button>
+                <TextBox Name="PayedTwos" Grid.Column="1" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+
+                </TextBox>
+                <Button Click="twominusButton_Click" Name="twominusButton" Grid.Column="2" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    -
+                </Button>
+                <TextBox Name="ChangeTwos" Grid.Column="3" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Grid>
+        </Border>
+        <Border Name="borderOneBills" Grid.Column="2" Grid.Row="7">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Click="onePlusButton_Click" Name="onePlusButton" Grid.Column="0" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    +
+                </Button>
+                <TextBox Name="PayedOneBills" Grid.Column="1" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+
+                </TextBox>
+                <Button Click="oneminusButton_Click" Name="oneminusButton" Grid.Column="2" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    -
+                </Button>
+                <TextBox Name="ChangeOneBills" Grid.Column="3" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Grid>
+        </Border>
+
+
+
+        <Border Name="borderOneCoins" Grid.Column="4" Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Click="oneCoinPlusButton_Click" Name="oneCoinPlusButton" Grid.Column="0" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    +
+                </Button>
+                <TextBox Name="PayedOneCoins" Grid.Column="1" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+
+                </TextBox>
+                <Button Click="oneCoinminusButton_Click" Name="oneCoinminusButton" Grid.Column="2" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    -
+                </Button>
+                <TextBox Name="ChangeOneCoins" Grid.Column="3" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Grid>
+        </Border>
+        <Border Name="borderHalfDollars" Grid.Column="4" Grid.Row="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Click="halfDollarPlusButton_Click" Name="halfDollarPlusButton" Grid.Column="0" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    +
+                </Button>
+                <TextBox Name="PayedHalfDollars" Grid.Column="1" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+
+                </TextBox>
+                <Button Click="halfDollarminusButton_Click" Name="halfDollarminusButton" Grid.Column="2" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    -
+                </Button>
+                <TextBox Name="ChangeHalfDollar" Grid.Column="3" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Grid>
+        </Border>
+        <Border Name="borderQuarters" Grid.Column="4" Grid.Row="3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Click="quarterPlusButton_Click" Name="quarterPlusButton" Grid.Column="0" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    +
+                </Button>
+                <TextBox Name="PayedQuarters" Grid.Column="1" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+
+                </TextBox>
+                <Button Click="quarterminusButton_Click" Name="quarterminusButton" Grid.Column="2" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    -
+                </Button>
+                <TextBox Name="ChangeQuarters" Grid.Column="3" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Grid>
+        </Border>
+        <Border Name="borderDimes" Grid.Column="4" Grid.Row="4">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Click="dimePlusButton_Click" Name="dimePlusButton" Grid.Column="0" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    +
+                </Button>
+                <TextBox Name="PayedDimes" Grid.Column="1" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+
+                </TextBox>
+                <Button Click="dimeminusButton_Click" Name="dimeminusButton" Grid.Column="2" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    -
+                </Button>
+                <TextBox Name="ChangeDimes" Grid.Column="3" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Grid>
+        </Border>
+        <Border Name="borderNickels" Grid.Column="4" Grid.Row="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Click="nickelPlusButton_Click" Name="nickelPlusButton" Grid.Column="0" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    +
+                </Button>
+                <TextBox Name="PayedNickels" Grid.Column="1" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+
+                </TextBox>
+                <Button Click="nickelminusButton_Click" Name="nickelminusButton" Grid.Column="2" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    -
+                </Button>
+                <TextBox Name="ChangeNickels" Grid.Column="3" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Grid>
+        </Border>
+        <Border Name="borderPennies" Grid.Column="4" Grid.Row="6">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Click="penniesPlusButton_Click" Name="penniesPlusButton" Grid.Column="0" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    +
+                </Button>
+                <TextBox Name="PayedPennies" Grid.Column="1" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+
+                </TextBox>
+                <Button Click="penniesminusButton_Click" Name="penniesminusButton" Grid.Column="2" FontSize="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    -
+                </Button>
+                <TextBox Name="ChangePennnies" Grid.Column="3" FontSize="35" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Grid>
+        </Border>
+        
+        
+        
+    </Grid>
+</UserControl>

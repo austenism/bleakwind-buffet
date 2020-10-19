@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="PointOfSale.PaymentWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="1*"/> <!--Cash-->
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="1*"/> <!--Credit-->
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="1*"/> <!--Debit-->
+            <ColumnDefinition Width="40"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Foreground="White" Grid.Column="1" Grid.ColumnSpan="6" FontSize="30">
+            PAYMENT OPTIONS
+        </TextBlock>
+        
+        <!--CASH-->
+        <Button Click="cashButton_Click" Name="cashButton" Grid.Column="1" Grid.Row="1" FontSize="35">
+            CASH
+        </Button>
+        <!--CREDIT-->
+        <Button Click="cardButton_Click" Name="creditButton" Grid.Column="3" Grid.Row="1" FontSize="35">
+            CREDIT
+        </Button>
+        <!--DEBIT-->
+        <Button Click="cardButton_Click" Name="debitBtton" Grid.Column="5" Grid.Row="1" FontSize="35">
+            DEBIT
+        </Button>
+        <!--RETURN TO ORDER-->
+        <Button Click="returnButton_Click" Name="returnButton" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="3" FontSize="40">
+            RETURN TO ORDER
+        </Button>
+        
+    </Grid>
+</UserControl>

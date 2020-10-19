@@ -22,6 +22,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="RoundRegister">
+      <HintPath>..\RoundRegister.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="TypeMenus\Entrees - Copy.xaml.cs">
       <SubType>Code</SubType>
       <DependentUpon>Entrees.xaml.cs</DependentUpon>

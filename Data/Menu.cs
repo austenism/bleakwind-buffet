@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+*Author: Austen Clemons
+* Class name: Combo.cs
+* Purpose: To contain the properties of the Menu
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Entrees;

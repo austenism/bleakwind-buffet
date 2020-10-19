@@ -21,7 +21,9 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="40"/>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="230"/>
+            <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
 
         <Label Grid.Column="1" Grid.ColumnSpan="3" FontSize="20" Foreground="White">
@@ -48,6 +50,10 @@
                 <Rectangle Width="22"></Rectangle>
                 <Image DockPanel.Dock="Right" Source="Pictures/drink.png" Stretch="Fill"/>
             </DockPanel>
+        </Button>
+
+        <Button Click="makeAComboButton_Click" Name="makeAComboButton" Grid.Column="3" Grid.Row="4" FontSize="30">
+            MAKE A COMBO
         </Button>
     </Grid>
 </UserControl>

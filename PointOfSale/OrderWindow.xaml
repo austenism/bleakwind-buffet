@@ -43,7 +43,7 @@
         <Button Click="removeButton_Click" Name="removeButton" Grid.Column="1" Grid.Row="4">
             REMOVE ITEM
         </Button>
-        <Button Name="completeButton" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="8">
+        <Button Click="completeButton_Click" Name="completeButton" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="8">
             COMPLETE ORDER
         </Button>
         
