@@ -1,0 +1,63 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bleakwind Buffet</h1>
+    <p>We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim. Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas. Hack into a Smokehouse Skeleton with your dagger. Or vanquish the the mighty Thalmor Triple Burger! You’ve had a hard adventure and earned your loot, so spend it with us!.</p>
+
+    <br />
+    <br />
+    <br />
+
+    <h2>Our Menu</h2>
+
+    <p>Any combination of one Entree, Side, and Drink can be combined into a combo for a $1 discount</p>
+    <br />
+
+    <br />
+
+    <h4 style="text-align:left;">Entrees</h4>
+    <!--ENTREES-->
+    <div class="entrees-list">
+        @foreach (BleakwindBuffet.Data.Entrees.Entree entree in BleakwindBuffet.Data.Menu.Entrees())
+        {
+            <div class="menu-item" style="text-align:left;"> - @entree.ToString()</div>
+        }
+    </div>
+    <br />
+
+    <h4 style="text-align:left;">Sides</h4>
+    <!--SIDES-->
+    <div class="sides-list">
+        @foreach (BleakwindBuffet.Data.Sides.Side side in BleakwindBuffet.Data.Menu.Sides())
+        {
+            <div class="menu-item" style="text-align:left;"> - @side.ToString()</div>
+        }
+    </div>
+    <br />
+
+    <h4 style="text-align:left;">Drinks</h4>
+    <!--DRINKS-->
+    <div class="drinks-list">
+        @foreach (BleakwindBuffet.Data.Drinks.Drink drink in BleakwindBuffet.Data.Menu.Drinks())
+        {
+            @if (drink is BleakwindBuffet.Data.Drinks.SailorSoda)
+            { //if its a sailor soda
+              //dont do anything well print it manually later
+            }
+            else //if it isnt a sailor soda print it off
+            {
+                <div class="menu-item" style="text-align:left;"> - @drink.ToString()</div>
+            }
+        }
+        <div class="menu-item" style="text-align:left;"> - Small Sailor Soda 1.42</div>
+        <div class="menu-item" style="text-align:left;"> - Medium Sailor Soda 1.74</div>
+        <div class="menu-item" style="text-align:left;"> - Large Sailor Soda 2.07</div>
+        <div class="menu-item" style="text-align:left;"> --- Soda Flavors: Blackberry - Cherry - Grapefruit - Lemon - Peach - Watermelon</div>
+    </div>
+    <br />
+
+</div>
