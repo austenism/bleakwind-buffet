@@ -4,60 +4,96 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Bleakwind Buffet</h1>
-    <p>We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim. Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas. Hack into a Smokehouse Skeleton with your dagger. Or vanquish the the mighty Thalmor Triple Burger! You’ve had a hard adventure and earned your loot, so spend it with us!.</p>
+<form id="mainpage">
 
-    <br />
-    <br />
-    <br />
+    <div class="text-center">
+        <h1 class="display-4">Bleakwind Buffet</h1>
+        <p>We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim. Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas. Hack into a Smokehouse Skeleton with your dagger. Or vanquish the the mighty Thalmor Triple Burger! You’ve had a hard adventure and earned your loot, so spend it with us!.</p>
 
-    <h2>Our Menu</h2>
+        <br />
+        <br />
+        <br />
 
-    <p>Any combination of one Entree, Side, and Drink can be combined into a combo for a $1 discount</p>
-    <br />
+        <h2>Our Menu</h2>
 
-    <br />
+        <p>Any combination of one Entree, Side, and Drink can be combined into a combo for a $1 discount</p>
+        <br />
 
-    <h4 style="text-align:left;">Entrees</h4>
-    <!--ENTREES-->
-    <div class="entrees-list">
-        @foreach (BleakwindBuffet.Data.Entrees.Entree entree in BleakwindBuffet.Data.Menu.Entrees())
-        {
-            <div class="menu-item" style="text-align:left;"> - @entree.ToString()</div>
-        }
-    </div>
-    <br />
+        <br />
 
-    <h4 style="text-align:left;">Sides</h4>
-    <!--SIDES-->
-    <div class="sides-list">
-        @foreach (BleakwindBuffet.Data.Sides.Side side in BleakwindBuffet.Data.Menu.Sides())
-        {
-            <div class="menu-item" style="text-align:left;"> - @side.ToString()</div>
-        }
-    </div>
-    <br />
+        <div id="search">
+            <input type="text" name="SearchTerms" value="@Model.SearchTerms"/>
+            <input type="submit" value="Search">
+        </div>
+        <div id="filters">
+            <label>
+                <input type="checkbox" name="showEntrees" value="@Model.showEntrees" checked="@Model.showEntrees" />
+                Entrees
+            </label>
+            <label>
+                <input type="checkbox" name="showSides" value="@Model.showSides" checked="@Model.showSides" />
+                Sides
+            </label>
+            <label>
+                <input type="checkbox" name="showDrinks" value="@Model.showDrinks" checked="@Model.showDrinks" />
+                Drinks
+            </label>
 
-    <h4 style="text-align:left;">Drinks</h4>
-    <!--DRINKS-->
-    <div class="drinks-list">
-        @foreach (BleakwindBuffet.Data.Drinks.Drink drink in BleakwindBuffet.Data.Menu.Drinks())
-        {
-            @if (drink is BleakwindBuffet.Data.Drinks.SailorSoda)
-            { //if its a sailor soda
-              //dont do anything well print it manually later
-            }
-            else //if it isnt a sailor soda print it off
-            {
-                <div class="menu-item" style="text-align:left;"> - @drink.ToString()</div>
-            }
-        }
-        <div class="menu-item" style="text-align:left;"> - Small Sailor Soda 1.42</div>
-        <div class="menu-item" style="text-align:left;"> - Medium Sailor Soda 1.74</div>
-        <div class="menu-item" style="text-align:left;"> - Large Sailor Soda 2.07</div>
-        <div class="menu-item" style="text-align:left;"> --- Soda Flavors: Blackberry - Cherry - Grapefruit - Lemon - Peach - Watermelon</div>
-    </div>
-    <br />
+            <div>
+                Calories: Between
+                <input value="@Model.CaloriesMin" name="CaloriesMin" type="number" min="0" max="100000" step="10" placeholder="min" />
+                and
+                <input value="@Model.CaloriesMax" name="CaloriesMax" type="number" min="0" max="10000" step="10" placeholder="max" />
+            </div>
+            <div>
+                Price: Between
+                <input value="@Model.PriceMin" name="PriceMin" type="number" min="0" max="100000" step="0.10" placeholder="min" />
+                and
+                <input value="@Model.PriceMax" name="PriceMax" type="number" min="0" max="10000" step="0.10" placeholder="max" />
+            </div>
 
-</div>
+        </div>
+
+
+            <h4 style="text-align:left;">Entrees</h4>
+            <!--ENTREES-->
+            <div class="entrees-list">
+                @foreach (BleakwindBuffet.Data.IOrderItem entree in Model.Items)
+                {
+                    if (entree is BleakwindBuffet.Data.Entrees.Entree)
+                    {
+                        <div class="menu-item" style="text-align:left;"> - @entree.ToString()</div>
+                    }
+                }
+            </div>
+            <br />
+
+            <h4 style="text-align:left;">Sides</h4>
+            <!--SIDES-->
+            <div class="sides-list">
+                @foreach (BleakwindBuffet.Data.IOrderItem side in Model.Items)
+                {
+                    if (side is BleakwindBuffet.Data.Sides.Side)
+                    {
+                        <div class="menu-item" style="text-align:left;"> - @side.ToString()</div>
+                    }
+                }
+            </div>
+            <br />
+
+            <h4 style="text-align:left;">Drinks</h4>
+            <!--DRINKS-->
+            <div class="drinks-list">
+                @foreach (BleakwindBuffet.Data.IOrderItem drink in Model.Items)
+                {
+                    if (drink is BleakwindBuffet.Data.Drinks.Drink)
+                    {
+                        <div class="menu-item" style="text-align:left;"> - @drink.ToString()</div>
+                    }
+                }
+
+            </div>
+            <br />
+
+        </div>
+</form>

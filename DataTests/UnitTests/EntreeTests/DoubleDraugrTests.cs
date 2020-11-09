@@ -358,7 +358,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         public void ShouldReturnCorrectToString()
         {
             DoubleDraugr dish = new DoubleDraugr();
-            Assert.Equal("Double Draugr", dish.ToString());
+            Assert.Equal("Double Draugr\n" + dish.Price, dish.ToString());
         }
     }
 }

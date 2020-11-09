@@ -142,15 +142,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.Equal(calories, side.Calories);
         }
 
-        [Theory]
-        [InlineData(Size.Small, "Small Vokun Salad")]
-        [InlineData(Size.Medium, "Medium Vokun Salad")]
-        [InlineData(Size.Large, "Large Vokun Salad")]
-        public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
-        {
-            VokunSalad side = new VokunSalad();
-            side.Size = size;
-            Assert.Equal(name, side.ToString());
-        }
+        //[Theory]
+        //[InlineData(Size.Small, "Small Vokun Salad")]
+        //[InlineData(Size.Medium, "Medium Vokun Salad")]
+        //[InlineData(Size.Large, "Large Vokun Salad")]
+        //public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
+        //{
+        //    VokunSalad side = new VokunSalad();
+        //    side.Size = size;
+        //    Assert.Equal(name, side.ToString());
+        //}
     }
 }

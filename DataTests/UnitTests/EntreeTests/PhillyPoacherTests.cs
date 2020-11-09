@@ -173,7 +173,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         public void ShouldReturnCorrectToString()
         {
             PhillyPoacher dish = new PhillyPoacher();
-            Assert.Equal("Philly Poacher", dish.ToString());
+            Assert.Equal("Philly Poacher\n" + dish.Price, dish.ToString());
         }
     }
 }

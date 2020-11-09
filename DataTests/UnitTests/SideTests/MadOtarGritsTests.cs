@@ -142,15 +142,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.Equal(calories, side.Calories);
         }
 
-        [Theory]
-        [InlineData(Size.Small, "Small Mad Otar Grits")]
-        [InlineData(Size.Medium, "Medium Mad Otar Grits")]
-        [InlineData(Size.Large, "Large Mad Otar Grits")]
-        public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
-        {
-            MadOtarGrits side = new MadOtarGrits();
-            side.Size = size;
-            Assert.Equal(name, side.ToString());
-        }
+        //[Theory]
+        //[InlineData(Size.Small, "Small Mad Otar Grits")]
+        //[InlineData(Size.Medium, "Medium Mad Otar Grits")]
+        //[InlineData(Size.Large, "Large Mad Otar Grits")]
+        //public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
+        //{
+        //    MadOtarGrits side = new MadOtarGrits();
+        //    side.Size = size;
+        //    Assert.Equal(name, side.ToString());
+        //}
     }
 }

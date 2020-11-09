@@ -209,7 +209,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         public void ShouldReturnCorrectToString()
         {
             SmokehouseSkeleton dish = new SmokehouseSkeleton();
-            Assert.Equal("Smokehouse Skeleton", dish.ToString());
+            Assert.Equal("Smokehouse Skeleton\n" + dish.Price, dish.ToString());
         }
     }
 }

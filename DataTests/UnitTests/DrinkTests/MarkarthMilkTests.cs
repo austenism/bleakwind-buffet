@@ -181,15 +181,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             }
         }
 
-        [Theory]
-        [InlineData(Size.Small, "Small Markarth Milk")]
-        [InlineData(Size.Medium, "Medium Markarth Milk")]
-        [InlineData(Size.Large, "Large Markarth Milk")]
-        public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
-        {
-            MarkarthMilk drink = new MarkarthMilk();
-            drink.Size = size;
-            Assert.Equal(name, drink.ToString());
-        }
+        //[Theory]
+        //[InlineData(Size.Small, "Small Markarth Milk")]
+        //[InlineData(Size.Medium, "Medium Markarth Milk")]
+        //[InlineData(Size.Large, "Large Markarth Milk")]
+        //public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
+        //{
+        //    MarkarthMilk drink = new MarkarthMilk();
+        //    drink.Size = size;
+        //    Assert.Equal(name, drink.ToString());
+        //}
     }
 }

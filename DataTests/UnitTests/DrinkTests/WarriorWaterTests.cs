@@ -220,16 +220,16 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             }
         }
 
-        [Theory]
-        [InlineData(Size.Small, "Small Warrior Water")]
-        [InlineData(Size.Medium, "Medium Warrior Water")]
-        [InlineData(Size.Large, "Large Warrior Water")]
-        public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
-        {
-            WarriorWater drink = new WarriorWater();
-            drink.Size = size;
-            Assert.Equal(name, drink.ToString());
-        }
+        //[Theory]
+        //[InlineData(Size.Small, "Small Warrior Water")]
+        //[InlineData(Size.Medium, "Medium Warrior Water")]
+        //[InlineData(Size.Large, "Large Warrior Water")]
+        //public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
+        //{
+        //    WarriorWater drink = new WarriorWater();
+        //    drink.Size = size;
+        //    Assert.Equal(name, drink.ToString());
+        //}
     }
 
 }

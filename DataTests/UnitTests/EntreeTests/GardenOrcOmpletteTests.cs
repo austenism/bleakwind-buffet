@@ -209,7 +209,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         public void ShouldReturnCorrectToString()
         {
             GardenOrcOmelette dish = new GardenOrcOmelette();
-            Assert.Equal("Garden Orc Omelette", dish.ToString());
+            Assert.Equal("Garden Orc Omelette\n" + dish.Price, dish.ToString());
         }
     }
 }

@@ -16,6 +16,148 @@ namespace BleakwindBuffet.Data
 {
     public static class Menu
     {
+        public static IEnumerable<IOrderItem> All { get { return Menu.FullMenu(); } }
+
+
+
+
+        /// <summary>
+        /// codefor the search bar
+        /// </summary>
+        /// <param name="terms"></param>
+        /// <returns></returns>
+        public static IEnumerable<IOrderItem> Search(string terms)
+        {
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            //null check
+            if (terms == null)
+            {
+                return All;
+            }
+            foreach (IOrderItem item in All)
+            {
+                terms = terms.ToLower(); //make it so that case is ignored
+                if (item.ToString().ToLower().Contains(terms))
+                {
+                    results.Add(item);
+                }
+
+            }
+            return results;
+        }
+
+        public static IEnumerable<IOrderItem> FilterByType(IEnumerable<IOrderItem> items, bool entrees, bool drinks, bool sides)
+        {
+            //null check
+            if (entrees && drinks && sides) return items;
+
+            //filter the stuff
+            List<IOrderItem> results = new List<IOrderItem>();
+            foreach (IOrderItem item in items)
+            {
+                if (entrees && item is Entree)
+                    results.Add(item);
+                if (drinks && item is Drink)
+                    results.Add(item);
+                if (sides && item is Side)
+                    results.Add(item);
+            }
+            return results;
+        }
+
+        /// <summary>
+        /// filters by calories
+        /// </summary>
+        /// <param name="items"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, int? min, int? max)
+        {
+            if (min == null && max == null) return items;
+            var results = new List<IOrderItem>();
+
+            // only a maximum specified
+            if (min == null)
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item.Calories <= max) results.Add(item);
+                }
+                return results;
+            }
+            //only min specified
+            if (max == null)
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item.Calories >= min) results.Add(item);
+                }
+                return results;
+            }
+            //both specified
+            foreach (IOrderItem item in items)
+            {
+                if (item.Calories >= min && item.Calories <= max)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
+
+        /// <summary>
+        /// filters by price
+        /// </summary>
+        /// <param name="items"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> items, double? min, double? max)
+        {
+            if (min == null && max == null) return items;
+            var results = new List<IOrderItem>();
+
+            // only a maximum specified
+            if (min == null)
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item.Calories <= max) results.Add(item);
+                }
+                return results;
+            }
+            //only min specified
+            if (max == null)
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item.Calories >= min) results.Add(item);
+                }
+                return results;
+            }
+            //both specified
+            foreach (IOrderItem item in items)
+            {
+                if (item.Calories >= min && item.Calories <= max)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
+
+
+
+
+
+
+
+
+
+
+
         /// <summary>
         /// contains the entrees
         /// </summary>

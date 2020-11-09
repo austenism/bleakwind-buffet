@@ -435,7 +435,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         public void ShouldReturnCorrectToString()
         {
             ThalmorTriple dish = new ThalmorTriple();
-            Assert.Equal("Thalmor Triple", dish.ToString());
+            Assert.Equal("Thalmor Triple\n" + dish.Price, dish.ToString());
         }
     }
 }

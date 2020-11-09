@@ -246,7 +246,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         public void ShouldReturnCorrectToString()
         {
             BriarheartBurger dish = new BriarheartBurger();
-            Assert.Equal("Briarheart Burger", dish.ToString());
+            Assert.Equal("Briarheart Burger\n" + dish.Price, dish.ToString());
         }
     }
 }
