@@ -22,6 +22,8 @@ namespace BleakwindBuffet.Data.Entrees
         private bool tomato = true; //all of the ingredients that be removed
         private bool cheddar = true;
 
+        public override string Description { get { return "Vegetarian. Two egg omelette packed with a mix of broccoli, mushrooms, and tomatoes. Topped with cheddar cheese."; } }
+
         public override event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>

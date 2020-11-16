@@ -30,7 +30,9 @@ namespace BleakwindBuffet.Data.Sides
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
             }
         }
-    
+
+        public override string Description { get { return "Crispy fried potato waffle fries."; } }
+
         /// <summary>
         /// returns the name of the drink
         /// </summary>

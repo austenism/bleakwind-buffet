@@ -18,6 +18,8 @@ namespace BleakwindBuffet.Data.Sides
         public override List<string> SpecialInstructions { get; } = new List<string>();
         private Size size;
 
+        public override string Description { get { return "A seasonal fruit salad of melons, berries, mango, grape, apple, and oranges."; } }
+
         public override event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// size of the side
@@ -84,5 +86,7 @@ namespace BleakwindBuffet.Data.Sides
                 }
             }
         }
+
+        
     }
 }

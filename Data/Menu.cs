@@ -18,9 +18,6 @@ namespace BleakwindBuffet.Data
     {
         public static IEnumerable<IOrderItem> All { get { return Menu.FullMenu(); } }
 
-
-
-
         /// <summary>
         /// codefor the search bar
         /// </summary>

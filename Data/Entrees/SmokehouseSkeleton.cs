@@ -22,6 +22,8 @@ namespace BleakwindBuffet.Data.Entrees
         private bool hashbrowns = true; //all of the ingredients that be removed
         private bool pancake = true;
 
+        public override string Description { get { return "Put some meat on those bones with a small stack of pancakes. Includes sausage links, eggs, and hash browns on the side. Topped with the syrup of your choice."; } }
+
         public override event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>

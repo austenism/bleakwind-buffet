@@ -21,6 +21,8 @@ namespace BleakwindBuffet.Data.Drinks
         private Size size;
         private bool decaf = false;
 
+        public override string Description { get { return "Fair trade, fresh ground dark roast coffee."; } }
+
         public override event PropertyChangedEventHandler PropertyChanged;
 
         public bool Decaf { get => decaf; 

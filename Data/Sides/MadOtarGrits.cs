@@ -18,6 +18,8 @@ namespace BleakwindBuffet.Data.Sides
         public override List<string> SpecialInstructions { get; } = new List<string>();
         private Size size;
 
+        public override string Description { get { return "Cheesey Grits."; } }
+
         public override event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// size of the side

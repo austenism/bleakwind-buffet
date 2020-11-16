@@ -16,6 +16,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class FriedMiraakTests
     {
         [Fact]
+        public void DescriptionReturnsCorrectString()
+        {
+            FriedMiraak item = new FriedMiraak();
+            Assert.Equal("Perfectly prepared hash brown pancakes.", item.Description);
+        }
+
+        [Fact]
         public void ChangingSizeNotifiesSizeProperty()
         {
             var side = new FriedMiraak();

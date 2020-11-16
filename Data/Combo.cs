@@ -21,6 +21,8 @@ namespace BleakwindBuffet.Data
         //public event PropertyChangedEventHandler PropertyChanged;
 
 
+        public string Description => throw new NotImplementedException();
+
         private Entree entree = new BriarheartBurger();
         private Side side = new DragonbornWaffleFries();
         private Drink drink = new AretinoAppleJuice();

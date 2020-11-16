@@ -21,6 +21,8 @@ namespace BleakwindBuffet.Data.Entrees
         private bool onion = true;
         private bool roll = true;
 
+        public override string Description { get { return "Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll."; } }
+
         public override event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>

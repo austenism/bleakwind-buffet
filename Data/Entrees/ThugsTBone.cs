@@ -16,6 +16,8 @@ namespace BleakwindBuffet.Data.Entrees
         private const uint CALORIES = 982;
         public override List<string> SpecialInstructions { get; } = new List<string>();
 
+        public override string Description { get { return "Juicy T-Bone, not much else to say."; } }
+
         /// <summary>
         /// returns the name of the entree
         /// </summary>

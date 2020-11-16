@@ -16,6 +16,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class VokunSaladTests
     {
         [Fact]
+        public void DescriptionReturnsCorrectString()
+        {
+            VokunSalad item = new VokunSalad();
+            Assert.Equal("A seasonal fruit salad of melons, berries, mango, grape, apple, and oranges.", item.Description);
+        }
+
+        [Fact]
         public void ChangingSizeNotifiesSizeProperty()
         {
             var side = new VokunSalad();

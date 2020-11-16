@@ -22,38 +22,69 @@ namespace Website.Pages
         public string SearchTerms { get; set; }
 
 
-        [BindProperty]
         public bool showEntrees { get; set; }
-        [BindProperty]
         public bool showDrinks { get; set; }
-        [BindProperty]
         public bool showSides { get; set; }
 
-        [BindProperty]
         public int? CaloriesMax { get; set; }
-        [BindProperty]
         public int? CaloriesMin { get; set; }
-        
-        [BindProperty]
         public double? PriceMax { get; set; }
-        [BindProperty]
         public double? PriceMin { get; set; }
 
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
         }
-        
+
         public void OnGet(string SearchTerms)
         {
-            Items = Menu.Search(SearchTerms);
-            //Items = ItemDatabase.FilterByType(Items, showEntrees, showDrinks, showSides);
-            Items = Menu.FilterByCalories(Items, CaloriesMin, CaloriesMax);
-            Items = Menu.FilterByPrice(Items, PriceMin, PriceMax);
+            
+
+            Items = Menu.All;
+            // Search stuff for the SearchTerms
+            if (SearchTerms != null)
+            {
+                Items = Items.Where(item => item != null && (item.ToString().Contains(SearchTerms, StringComparison.InvariantCultureIgnoreCase) || item.Description.Contains(SearchTerms, StringComparison.InvariantCultureIgnoreCase)));
+
+                ////Items = ItemDatabase.FilterByType(Items, showEntrees, showDrinks, showSides);
+            }
+
+            //FILTER BY TYPE
+            if (showEntrees)
+                Items = Items.Where(item => item != null && item is Entree);
+            if (showDrinks)
+                Items = Items.Where(item => item != null && item is Drink);
+            if (showSides)
+                Items = Items.Where(item => item != null && item is Side);
+
+            //CALORIES RANGE
+            if (CaloriesMin == null && CaloriesMax != null)
+            {
+                Items = Items.Where(item => item != null && item.Calories <= CaloriesMax);
+            }
+            if (CaloriesMax == null && CaloriesMin != null)
+            {
+                Items = Items.Where(item => item != null && item.Calories >= CaloriesMin);
+            }
+            if (CaloriesMax != null && CaloriesMin != null)
+            {
+                Items = Items.Where(item => item != null && (item.Calories >= CaloriesMin && item.Calories <= CaloriesMax));
+            }
+            //PRICE RANGE
+            if (PriceMin == null && PriceMax != null)
+            {
+                Items = Items.Where(item => item != null && item.Price <= PriceMax);
+            }
+            if (PriceMax == null && PriceMin != null)
+            {
+                Items = Items.Where(item => item != null && item.Price >= PriceMin);
+            }
+            if (PriceMax != null && PriceMin != null)
+            {
+                Items = Items.Where(item => item != null && (item.Price >= PriceMin && item.Price <= PriceMax));
+            }
+
         }
-        
-        
-        
 
     }
 }

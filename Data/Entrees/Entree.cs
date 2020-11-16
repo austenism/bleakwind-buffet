@@ -29,7 +29,9 @@ namespace BleakwindBuffet.Data.Entrees
         /// special instructions to prepare the entree
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
-
-        
+        /// <summary>
+        /// the description of the item
+        /// </summary>
+        public abstract string Description { get; }
     }
 }

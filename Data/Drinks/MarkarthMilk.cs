@@ -19,6 +19,8 @@ namespace BleakwindBuffet.Data.Drinks
         private bool ice = false;
         private Size size;
 
+        public override string Description { get { return "Hormone-free organic 2% milk."; } }
+
         public override event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>

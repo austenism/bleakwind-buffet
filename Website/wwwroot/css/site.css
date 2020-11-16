@@ -75,4 +75,19 @@ body {
 
 
 
+.float-columns > div {
+    float: left;
+    width: 33%;
+}
 
+.clearfix {
+    clear: both;
+}
+
+@media (max-width: 490px) {
+    .float-columns > div {
+        float: none;
+        width: 100%;
+    }
+
+}

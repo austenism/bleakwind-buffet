@@ -23,6 +23,8 @@ namespace BleakwindBuffet.Data.Drinks
         private bool ice = false;
         private Size size;
 
+        public override string Description { get { return "Fresh squeezed apple juice."; } }
+
         public override event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>

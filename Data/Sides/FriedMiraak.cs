@@ -15,7 +15,9 @@ namespace BleakwindBuffet.Data.Sides
     public class FriedMiraak : Side, INotifyPropertyChanged
     {
         public override List<string> SpecialInstructions { get; } = new List<string>();
-        private Size size; 
+        private Size size;
+
+        public override string Description { get { return "Perfectly prepared hash brown pancakes."; } }
 
         public override event PropertyChangedEventHandler PropertyChanged;
         /// <summary>

@@ -16,6 +16,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class MadOtarGritsTests
     {
         [Fact]
+        public void DescriptionReturnsCorrectString()
+        {
+            MadOtarGrits item = new MadOtarGrits();
+            Assert.Equal("Cheesey Grits.", item.Description);
+        }
+
+        [Fact]
         public void ChangingSizeNotifiesSizeProperty()
         {
             var side = new MadOtarGrits();

@@ -20,6 +20,8 @@ namespace BleakwindBuffet.Data.Drinks
         private bool ice = true;
         private Size size;
 
+        public override string Description { get { return "An old-fashioned jerked soda, carbonated water and flavored syrup poured over a bed of crushed ice."; } }
+
         public SodaFlavor Flavor
         {
             get => flavor;
